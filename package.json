@@ -1,0 +1,31 @@
+{
+  "name": "TimeTracker",
+  "version": "0.1.0",
+  "description": "Time tracking software for individuals",
+  "main": "TimeTracker.js",
+  "scripts": {
+    "lint": "eslint **/*.js",
+    "pretest": "npm run lint",
+    "test": "mocha",
+    "build": "npm install",
+    "dev": "npm install --save-dev",
+    "watch": "npm run test -- -w",
+    "start": "node ./lib/TimeTracker.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimeTrackers/TimeTracker.git"
+  },
+  "author": "@markgreenwood",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TimeTrackers/TimeTracker/issues"
+  },
+  "homepage": "https://github.com/TimeTrackers/TimeTracker#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.8.1",
+    "mocha": "^3.1.2"
+  },
+  "dependencies": {}
+}
