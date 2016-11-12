@@ -35,8 +35,11 @@ The accompanying test suite can be run using the 'npm test' command.
 ## Contributors
 
 [Mark Greenwood](https://github.com/markgreenwood)
+
 [Caitlin Araldi](https://github.com/caraldi)
+
 [Erica Hendricks](https://github.com/elhendricks)
+
 [Nathan Pickard](https://github.com/nathanpickard)
 
 ## License
