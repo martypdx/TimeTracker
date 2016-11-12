@@ -7,49 +7,26 @@ TODO: Add program description.
 ## Code Example
 
 ```
-const Bitmap = require('./lib/bitmap-xfmr');
-let myBmp = new Bitmap('example-bitmap.bmp', (err) => { console.log(err || 'Done!'); });
-myBmp.transform('redder', 3);
-myBmp.writeBufferToFile('images/example-redder3.bmp', (err) => { console.log(err || 'Done writing!'); });
+// TODO: Code example goes here.
 ```
 
 ## Motivation
 
-This was written as a lab assignment for Code Fellows 401 class.
+This was written as a project for Code Fellows 401 class.
 
 ## API Reference
 
-### Constructor
+### API route/example 1
 
-```myBmp = new Bitmap(filename, [callback(err, data)]);```
+`// TODO: example code here.`
 
-Construct a new Bitmap from the data in filename.
+TODO: Description here.
 
-### Transformer
+### API route/example 2
 
-```myBmp.transform(label, [arguments])```
+`// TODO: example code here.`
 
-Transform the bitmap where label is one of the available transforms:
- - 'redder' makes the image redder by a specified factor
- - 'bluer' makes the image bluer...
- - 'greener' makes the image greener...
- - 'invert' inverts the colors in the image (i.e. new_color = 255 - old_color)
- - 'grayscale' makes the image grayer by a specified factor
-
-Example:
-
-```
-myBmp.transform('redder', 3);
-myBmp.writeBufferToFile('images/redder3.bmp', (err) => {
-  console.log(err || 'Done!');
-});
-```
-
-### Save to file
-
-```myBmp.writeBufferToFile(filename, [callback(err, data)])```
-
-Write the Bitmap object's buffer out to a .bmp file.
+TODO: Description here.
 
 ## Tests
 
@@ -58,11 +35,14 @@ The accompanying test suite can be run using the 'npm test' command.
 ## Contributors
 
 [Mark Greenwood](https://github.com/markgreenwood)
+[Caitlin Araldi](https://github.com/caraldi)
+[Erica Hendricks](https://github.com/elhendricks)
+[Nathan Pickard](https://github.com/nathanpickard)
 
 ## License
 
 The MIT License (MIT)
-Copyright (c) 2016 Mark Greenwood
+Copyright (c) 2016 Time Trackers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
