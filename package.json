@@ -28,6 +28,7 @@
     "mocha": "^3.1.2"
   },
   "dependencies": {
+    "jsonwebtoken": "^7.1.9",
     "mongoose": "^4.6.7"
   }
 }
