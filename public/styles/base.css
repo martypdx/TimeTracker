@@ -29,7 +29,18 @@ h1, h2 {
 .main-nav li {
   font-family: 'Raleway', sans-serif;
   font-size: 1.5em;
+  border-bottom: 1px solid #d8d5d5;
 }
+
+a, a:link, a:active {
+  color: #0b1440;
+  text-decoration: none;
+}
+
+a:hover, a:focus a:visited {
+  color: #6e4a26;
+}
+
 
 #signin {
   padding: 1%;
