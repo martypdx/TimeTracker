@@ -21,7 +21,7 @@ html, body, #container, main, .tab-container, #landing-page, #signup-page, #setu
 /* Header: main-nav */
 .main-nav ul {
   display: block;
-  text-align: right;
+  text-align: center;
 }
 
 .main-nav li {
@@ -30,10 +30,10 @@ html, body, #container, main, .tab-container, #landing-page, #signup-page, #setu
 }
 
 /* Images */
-.logo img {
+.logo {
   display: block;
-  width: 15%;
-  text-align: left;
+  width: 10%;
+  margin: 0 auto;
 }
 
 .background-image img {
