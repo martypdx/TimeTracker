@@ -23,10 +23,16 @@ h1, h2 {
 .main-nav ul {
   list-style-type: none;
   text-align: right;
+  background-color: rgba(239, 238, 238, .3);
 }
 
 .main-nav li {
-  font-family: 'Abril Fatface', cursive;
-  font-size: 2em;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5em;
+}
+
+#signin {
+  padding: 1%;
+  text-align: center;
 }
 
