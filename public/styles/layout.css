@@ -2,6 +2,36 @@ html, body, #container, main, .tab-container, #landing-page, #signup-page, #setu
  height: 100%;
 }
 
+#container {
+   position:relative;
+}
+
+/* Header */
+.main-header, .main-nav {
+  position: absolute;
+  display: block;
+  width: 100%;
+}
+
+/* Header: main-nav */
+.main-nav ul {
+  display: block;
+  padding: 0;
+  margin: 3% 0;
+}
+
+.main-nav li {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+/* Header: logo */
+.logo img {
+  display: block;
+  width: 20%;
+  padding-top: 3%;
+}
+
 .background-image img {
   display: flex;
   width: 100%;
