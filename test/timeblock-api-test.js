@@ -51,5 +51,60 @@ describe('TimeBlock', () => {
       })
       .catch(done);
   });
+  
+  
+  it('put', done => {
+    let newDescription = 'had lunch with Mark';
+
+    //moment js to deal with time
+
+    request
+      .put(`/api/timeblocks/${testBlock._id}`)
+      // .set('Authorization', token)
+      .send({description: newDescription})
+      .then(res => {
+        const block = res.body;
+        expect(block.description).to.equal(newDescription);
+        testBlock = block;
+        done();
+      })
+      .catch(done);
+
+  });
+
+  it('get', done => {
+    request
+      .get(`/api/timeblocks/${testBlock._id}`)
+      // .set('Authorization', token)
+      .then(res => {
+        const block = res.body;
+        expect(block).to.eql(testBlock);
+        done();
+      })
+      .catch(done);
+  });
+
+  it('delete', done => {
+    request
+      .del(`/api/timeblocks/${testBlock._id}`)
+      // .set('Authorization', token)
+      .then(res => {
+        expect(res.body).to.eql(testBlock);
+        return;
+      })
+      .then(() => {
+        return request
+          .get(`/api/timeblocks/${testBlock._id}`)
+          // .set('Authorization', token)
+          .then(res => {
+            console.log('res.body', res.body);
+            expect(res.status).to.equal(404);
+            done();
+          });
+      })
+      .catch(done);
+  });
+
+  
 
 });
