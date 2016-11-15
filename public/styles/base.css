@@ -12,8 +12,8 @@ h1 {
 }
 
 /* Header: logo/headline */
-.logo h1 {
-  font-size: 2em;
+.headline h1 {
+  font-size: 4em;
   text-align: left;
   color: #E8FEFD;
   text-shadow: 3px 2px 1px rgba(17, 19, 24, .85);
@@ -22,4 +22,6 @@ h1 {
 /* Header: main-nav */
 .main-nav ul {
   list-style-type: none;
+  text-align: left;
 }
+
