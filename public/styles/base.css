@@ -24,11 +24,12 @@ h1, h2 {
   list-style-type: none;
   text-align: right;
   background-color: rgba(239, 238, 238, .3);
+  padding: 0;
 }
 
 .main-nav li {
   font-family: 'Raleway', sans-serif;
-  font-size: 1.5em;
+  font-size: 1.75em;
   border-bottom: 1px solid #d8d5d5;
 }
 
