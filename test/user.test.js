@@ -14,7 +14,7 @@ describe('User model', () => {
     });
   });
 
-  it('username and password is required', done => {
+  it('username is required', done => {
     const user = new User({password: 'testItem'});
 
     user.validate(err => {
@@ -22,5 +22,15 @@ describe('User model', () => {
       done();
     });
   });
+
+  it('password is required', done => {
+    const user = new User({username: 'testItem'});
+
+    user.validate(err => {
+      expect(err).to.be.ok;
+      done();
+    });
+  });
+
 
 });
