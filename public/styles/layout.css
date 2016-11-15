@@ -11,16 +11,16 @@ html, body, #container, main, .tab-container, #landing-page, #signup-page, #setu
 }
 
 /* Header */
-.main-header, .main-nav {
+.main-nav {
   position: absolute;
   display: block;
   width: 100%;
+  margin: 3%;
 }
 
 /* Header: main-nav */
 .main-nav ul {
   display: block;
-  padding: 0;
   text-align: right;
 }
 
@@ -30,7 +30,7 @@ html, body, #container, main, .tab-container, #landing-page, #signup-page, #setu
 }
 
 /* Images */
-.logo {
+.logo img {
   display: block;
   width: 15%;
   text-align: left;

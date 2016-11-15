@@ -1,12 +1,12 @@
 body {
   background-color: #efeeee;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 1em;
   color: #0b1440;
 }
 
 h1 {
-  font-family: 'PT Sans Narrow', sans-serif;
+  font-family: 'Abril Fatface', cursive;
 }
 
 /* Header: logo/headline */
@@ -23,5 +23,10 @@ h1 {
 .main-nav ul {
   list-style-type: none;
   text-align: right;
+}
+
+.main-nav li {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 2em;
 }
 
