@@ -21,7 +21,7 @@ html, body, #container, main, .tab-container, #landing-page, #signup-page, #setu
 .main-nav ul {
   display: block;
   padding: 0;
-  margin: 3% 0;
+  text-align: right;
 }
 
 .main-nav li {
@@ -32,7 +32,8 @@ html, body, #container, main, .tab-container, #landing-page, #signup-page, #setu
 /* Images */
 .logo {
   display: block;
-  width: 10%;
+  width: 15%;
+  text-align: left;
 }
 
 .background-image img {
