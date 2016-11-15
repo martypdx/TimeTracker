@@ -32,8 +32,12 @@ html, body, #container, main, .tab-container, #landing-page, #signup-page, #setu
 /* Images */
 .logo {
   display: block;
-  width: 10%;
   margin: 0 auto;
+  text-align: center;
+}
+
+.logo img{
+  width: 10%;
 }
 
 .background-image img {
