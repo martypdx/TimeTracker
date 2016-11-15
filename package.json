@@ -1,5 +1,5 @@
 {
-  "name": "TimeTracker",
+  "name": "time-tracker",
   "version": "0.1.0",
   "description": "Time tracking software for individuals",
   "main": "TimeTracker.js",
@@ -10,7 +10,7 @@
     "build": "npm install",
     "dev": "npm install --save-dev",
     "watch": "npm run test -- -w",
-    "start": "MONGODB_URI=mongodb://localhost/timetracker-test nodemon server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
