@@ -1,0 +1,130 @@
+{
+	"_id": {
+		"$oid": "5828d244a792163a14a160c6"
+	},
+	"description": "Thing 0",
+	"startTime": {
+		"$date": "2016-11-13T20:51:16.332Z"
+	},
+	"endTime": {
+		"$date": "2016-11-14T14:51:16.332Z"
+	},
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5828d244a792163a14a160c7"
+	},
+	"description": "Thing 1",
+	"startTime": {
+		"$date": "2016-11-13T23:51:16.332Z"
+	},
+	"endTime": {
+		"$date": "2016-11-14T14:51:16.332Z"
+	},
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5828d244a792163a14a160c8"
+	},
+	"description": "Thing 2",
+	"startTime": {
+		"$date": "2016-11-14T00:51:16.332Z"
+	},
+	"endTime": {
+		"$date": "2016-11-14T14:51:16.332Z"
+	},
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5828d244a792163a14a160c9"
+	},
+	"description": "Thing 3",
+	"startTime": {
+		"$date": "2016-11-14T03:51:16.332Z"
+	},
+	"endTime": {
+		"$date": "2016-11-14T14:51:16.332Z"
+	},
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5828d244a792163a14a160ca"
+	},
+	"description": "Thing 4",
+	"startTime": {
+		"$date": "2016-11-14T06:51:16.332Z"
+	},
+	"endTime": {
+		"$date": "2016-11-14T14:51:16.332Z"
+	},
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5828d244a792163a14a160cb"
+	},
+	"description": "Thing 5",
+	"startTime": {
+		"$date": "2016-11-14T07:51:16.332Z"
+	},
+	"endTime": {
+		"$date": "2016-11-14T14:51:16.332Z"
+	},
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5828d244a792163a14a160cc"
+	},
+	"description": "Thing 6",
+	"startTime": {
+		"$date": "2016-11-14T08:51:16.332Z"
+	},
+	"endTime": {
+		"$date": "2016-11-14T14:51:16.332Z"
+	},
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5828d244a792163a14a160cd"
+	},
+	"description": "Thing 7",
+	"startTime": {
+		"$date": "2016-11-14T10:51:16.332Z"
+	},
+	"endTime": {
+		"$date": "2016-11-14T14:51:16.332Z"
+	},
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5828d244a792163a14a160ce"
+	},
+	"description": "Thing 8",
+	"startTime": {
+		"$date": "2016-11-14T12:51:16.332Z"
+	},
+	"endTime": {
+		"$date": "2016-11-14T14:51:16.332Z"
+	},
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5828d244a792163a14a160cf"
+	},
+	"description": "Thing 9",
+	"startTime": {
+		"$date": "2016-11-14T12:51:16.332Z"
+	},
+	"endTime": {
+		"$date": "2016-11-14T14:51:16.332Z"
+	},
+	"__v": 0
+}
