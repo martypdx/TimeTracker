@@ -98,7 +98,9 @@ describe('TimeBlock', () => {
           // .set('Authorization', token)
           .then(res => {
             console.log('res.body', res.body);
-            expect(res.status).to.equal(404);
+          })
+          .catch(err => {
+            expect(err).to.be.ok;
             done();
           });
       })
