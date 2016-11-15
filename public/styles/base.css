@@ -1,22 +1,24 @@
 body {
-  background-color: #E8FEFD;
+  background-color: #b2acac;
   font-family: 'PT Sans', sans-serif;
   font-size: 1em;
-  color: #111318;
+  color: #0b1440;
   text-align: center;
 }
 
 h1 {
   font-family: 'PT Sans Narrow', sans-serif;
-  color: #25434D;
 }
 
 /* Header: logo/headline */
 .headline h1 {
   font-size: 4em;
   text-align: left;
-  color: #E8FEFD;
-  text-shadow: 3px 2px 1px rgba(17, 19, 24, .85);
+  color: #b2acac;
+}
+
+.signin h1 {
+  font-size: 2.5em;
 }
 
 /* Header: main-nav */

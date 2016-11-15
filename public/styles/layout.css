@@ -3,7 +3,11 @@ html, body, #container, main, .tab-container, #landing-page, #signup-page, #setu
 }
 
 #container {
-   position:relative;
+   position: relative;
+}
+
+.tab-container {
+  margin: 3%;
 }
 
 /* Header */
@@ -26,10 +30,9 @@ html, body, #container, main, .tab-container, #landing-page, #signup-page, #setu
 }
 
 /* Images */
-.logo img {
+.logo {
   display: block;
-  width: 15%;
-  padding-top: 3%;
+  width: 10%;
 }
 
 .background-image img {
