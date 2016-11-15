@@ -1,7 +1,3 @@
-html, body, #container, main, .tab-container, #landing-page, #signup-page, #setup-page, #dashboard-page {
- height: 100%;
-}
-
 body {
   background-color: #E8FEFD;
   font-family: 'PT Sans', sans-serif;
