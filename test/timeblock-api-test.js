@@ -97,8 +97,21 @@ describe('TimeBlock', () => {
       .set('Authorization', token)
       .then(res => {
         const block = res.body;
-        console.log('TESTBLOCK id', testBlock._id);
         expect(block).to.eql(testBlock);
+        done();
+      })
+      .catch(done);
+  });
+
+  it('get', done => {
+    request
+      .get(`/api/timeblocks/${testBlock._id}`)
+      .set('Authorization', 'badtoken')
+      .then(()=> {
+        done('should not be 200, OK');
+      })
+      .catch(err => {
+        expect(err).to.be.ok;
         done();
       })
       .catch(done);
@@ -131,13 +144,13 @@ describe('TimeBlock', () => {
     request
       .del(`/api/timeblocks/${testBlock._id}`)
       .set('Authorization', 'badtoken')
-      .then(res => {
+      .then(() => {
         done('should not be 200, OK');
         return;
       })
       .catch(err => {
-            expect(err).to.be.ok;
-            return done();
+        expect(err).to.be.ok;
+        return done();
       })
 // should refactor to test for whether block was deleted if given bad token. (which it shouldn't')
       .catch(done);
