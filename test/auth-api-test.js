@@ -4,6 +4,7 @@ chai.use(chaiHttp);
 
 const assert = chai.assert;
 const app = require('../lib/app');
+const connection = require('../lib/setup-mongoose');
 
 const request = chai.request(app);
 
@@ -44,6 +45,13 @@ describe('Auth', () => {
   };
 
   describe('user management', () => {
+
+    before(done => {
+      const drop = () => connection.db.dropDatabase(done);
+      if(connection.readyState === 1) drop();
+      else connection.on('open', drop);
+    });
+
     const badRequest = (url, send, error) => {
       return request
         .post(url)
@@ -70,7 +78,7 @@ describe('Auth', () => {
     it('executes signup', () => {
       return request
         .post('/api/auth/signup')
-        .send('testUser')
+        .send(testUser)
         .then(res => {
           console.log(token);
           assert.ok(token = res.body.token);
@@ -83,9 +91,7 @@ describe('Auth', () => {
 
     it('verifies token is valid', () => {
       return request 
-        .get(
-          // TODO: add the correct path here
-        )
+        .get('/api/auth/validate')
         .set('Authorization', token)
         .then(res => {
           assert.ok(res.body);
