@@ -72,6 +72,7 @@ describe('Auth', () => {
         .post('/api/auth/signup')
         .send('testUser')
         .then(res => {
+          console.log(token);
           assert.ok(token = res.body.token);
         });
     });
