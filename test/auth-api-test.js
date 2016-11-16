@@ -7,10 +7,10 @@ const app = require('../lib/app');
 
 const request = chai.request(app);
 
-describe.skip('Auth', () => {
+describe('Auth', () => {
 
 
-  describe('unauthorized', () => {
+  describe.skip('unauthorized', () => {
     it('returns 400 w/o a token', done => {        
       request
         .get(
@@ -58,18 +58,18 @@ describe.skip('Auth', () => {
     };
 
     it('requires a username for signup', () => {
-      badRequest('/auth/signup', {password: 'reallybadpassword'}, 'Username and password must be supplied');
+      badRequest('/api/auth/signup', {password: 'reallybadpassword'}, 'Username and password must be supplied');
     });
 
     it('requires a password for signup', () => {
-      badRequest('/auth/signup', {username: 'radPerson'}, 'Username and password must be supplied');
+      badRequest('/api/auth/signup', {username: 'radPerson'}, 'Username and password must be supplied');
     });
 
     let token = '';
 
     it('executes signup', () => {
       return request
-        .post('/auth/signup')
+        .post('/api/auth/signup')
         .send('testUser')
         .then(res => {
           assert.ok(token = res.body.token);
@@ -77,7 +77,7 @@ describe.skip('Auth', () => {
     });
 
     it('ensures that there is no duplication of usernames', () => {
-      badRequest('/auth/signup', testUser, 'Username coolkid already exists');
+      badRequest('/api/auth/signup', testUser, 'Username coolkid already exists');
     });
 
     it('verifies token is valid', () => {
@@ -93,7 +93,7 @@ describe.skip('Auth', () => {
 
     it('executes signin', () => {
       return request 
-        .post('/auth/signin')
+        .post('/api/auth/signin')
         .send(testUser)
         .then( res => {
           assert.ok(res.body.token);

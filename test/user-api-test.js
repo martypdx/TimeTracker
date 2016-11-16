@@ -33,7 +33,7 @@ describe('Users', () => {
     .catch(done);
   });
 
-  
+//we're going to update to only send activities and domains (not username and password)  
   it('gets a user', done => {
     request
       .get(`/api/users/${testUserA._id}`)
