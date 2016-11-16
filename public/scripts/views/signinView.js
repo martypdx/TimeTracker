@@ -1,6 +1,6 @@
-(function(module) {
+// (function(module) {
   
-  const signinView = {};
+//   const signinView = {};
   
-  signinView.
-})
+//   signinView.
+// })

@@ -9,15 +9,16 @@
   $.ajax({
     url: '/api/users/activities'
     //dataType:
-    success:function(data){
-      $selectActivity.html('');
+    // success:function(data){
+    //   $selectActivity.html('');
 
 
-    }
-    $.ajax({
-      url: '/api/users/domains'
-      /
-    })
+    // }
+    // $.ajax({
+    //   url: '/api/users/domains'
+    //   //dataType:
+    //   success:function(data)('')
+    // })
 
   })
 })
