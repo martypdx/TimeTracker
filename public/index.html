@@ -98,7 +98,7 @@
               <!-- TODO: token saved to localStorage, included in any AJAX calls to routes -->
                 <input type="submit" value="Create account"><br>
                 <!-- TODO: redirect to manageView -->
-                <a href='#'>Setup tracking</a>
+                <a href='#'>Setup and manage tracking</a>
               </div>
             </form>
           </div>
@@ -153,7 +153,8 @@
       <!-- dashboardView, landingView if already signed in -->
       <section id="dashboard-page" class="tab-content">
         <div id="time-entry">
-          <h1>Log time to track</h1>
+          <h1>Log the time you'd like to track</h1>
+            <h2>Tag your entry by activity and/or domain (optional)</h2>
 
             <div id="timeblock-form">
               <form name="timeblock" action="submit" method="post" accept-charset="UTF-8">
@@ -165,8 +166,6 @@
                   <input type="text" name="description" placeholder="description" required>
                 
                 <!-- Dropdown for activity/domain tags -->
-                <h2>Tag this entry by activity and/or domain</h2>
-                
                 <select>
                   <!-- TODO: generate from /api/users/activities -->
                   <option selected value="base">Please select an activity</option>
@@ -182,7 +181,7 @@
                 <input type="submit" value="Save entry">
                 <!-- TODO: re-render of chart with time-entry form cleared -->
                 <!-- TODO: redirect to manageView -->
-                <a href='#'>Manage account</a>
+                <a href='#'>Setup and manage tracking</a>
               </div>
             </form>
         </div>
