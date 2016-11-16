@@ -2,23 +2,23 @@
 (function(module) {
 
   const dashboardView = {};
-  const $selectActivity = $('#activity-filter');
-  const $selectDomain = $('#domain-filter');
+  const $selectActivity = $('#activity-tag');
+  const $selectDomain = $('#domain-tag');
 
   dashboardView.populateFilters = function() {
   $.ajax({
     url: '/api/users/activities'
-    //dataType:
-    // success:function(data){
-    //   $selectActivity.html('');
+    dataType: 
+    success:function(data){
+      $selectActivity.html('');
 
 
-    // }
-    // $.ajax({
-    //   url: '/api/users/domains'
-    //   //dataType:
-    //   success:function(data)('')
-    // })
+    }
+    $.ajax({
+      url: '/api/users/domains'
+      //dataType:
+      success:function(data)('')
+    })
 
   })
 })

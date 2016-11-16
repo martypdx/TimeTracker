@@ -1,13 +1,13 @@
 (function(module) {
 
-  const dashboardcontroller = {};
+  const signinController = {};
 
-  dashboardController.index = function() {
-    $('.signin').hide();
-    $('.signup').hide();
-    $('.dashboard').();    
+  signinController.reveal = function() {
+    $('.tab-content').hide();
+    $('#landing-page').fadeIn('slow');
+    
   };
 
-  module.dashboardController = dashboardController;
+  module.signinController = signinController;
 
 })(window);

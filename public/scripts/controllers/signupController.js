@@ -2,16 +2,12 @@
 
   const signupController = {};
 
-  signupController.index = function() {
-    $('.home').hide();
-    $('.about').hide();
-    $('.manage').hide();
-    $('.dashboard').slideDown(300);
-
-    signupView.formClick();
+  signupController.reveal = function() {
+    $('.tab-content').hide();
+    $('#signup-page').fadeIn('slow');
+    
   };
 
   module.signupController = signupController;
 
-
-})
+})(window);
