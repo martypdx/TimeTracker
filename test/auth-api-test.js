@@ -11,31 +11,30 @@ const request = chai.request(app);
 describe('Auth', () => {
 
 
-  describe.skip('unauthorized', () => {
+  describe('unauthorized', () => {
     it('returns 400 w/o a token', done => {        
       request
-        .get(
-            //TODO: add path to test after sign in that only allows an authorized user to see it
-            '/'
-        )
+        .get('/api/users/baduserid')
         .then(() => done('status should not be 200, OK'))
         .catch(res => {
           assert.equal(res.status, 400);
           assert.equal(res.response.body.error, 'Unauthorized, no token provided');
-        });
+          done();
+        })
+        .catch(done);
     });
 
     it('returns 403 w/ invalid token', done => {
       request
-        .get('/'
-        //TODO: add path to test after sign in that only allows an authorized user
-        )
+        .get('/api/users/baduserid')
         .set('Authorization', 'bad-token')
         .then(() => done('status should not be 200, OK'))
         .catch(res => {
           assert.equal(res.status, 403);
           assert.equal(res.response.body.error, 'Unauthorized, invalid token');
-        });
+          done();
+        })
+        .catch(done);
     });
   });
 

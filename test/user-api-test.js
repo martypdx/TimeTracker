@@ -7,7 +7,7 @@ const User = require('../lib/models/user');
 const connection = require('../lib/setup-mongoose');
 const app = require('../lib/app');
 
-describe('Users', () => {
+describe.skip('Users', () => {
   before(done => {
     const drop = () => connection.db.dropDatabase(done);
     if (connection.readyState === 1) drop();
