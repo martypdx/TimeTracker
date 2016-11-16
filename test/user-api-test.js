@@ -3,7 +3,6 @@ const chai = require('chai');
 const expect = chai.expect;
 chai.use(chaiHttp);
 
-const User = require('../lib/models/user');
 const connection = require('../lib/setup-mongoose');
 const app = require('../lib/app');
 
@@ -24,7 +23,6 @@ describe.only('Users', () => {
 
 
   let token = '';
-  let testUser;
 
   // Adding a dummy user to generate token
   // TODO: uncomment lines that set auth token
@@ -38,15 +36,9 @@ describe.only('Users', () => {
           .put('/api/users/mine')
           .set('Authorization', token)
           .send(testUserA)
-          // .then( user => {
-          //   console.log('got insite put then')
-          //   // console.log(user);
-          //   done()
-          // })
-      })
-      .then(user => {
-        console.log('got here');
-        done();
+          .then(() => {
+            done();
+          });
       })
       .catch(done);
   });
