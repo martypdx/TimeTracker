@@ -91,7 +91,7 @@ describe('Auth', () => {
 
     it('verifies token is valid', () => {
       return request 
-        .get('/api/auth/validate')
+        .post('/api/auth/validate')
         .set('Authorization', token)
         .then(res => {
           assert.ok(res.body);
