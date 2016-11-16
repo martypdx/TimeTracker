@@ -60,10 +60,10 @@
           <div id="signin-form">
             <form name="signin" action="submit" method="post" accept-charset="UTF-8">
               <label for="username">Username:</label><br>
-                <input type="text" name="username" placeholder="myusername" required>
+                <input type="text" name="username" placeholder="myusername" required><br>
               <label for="password">Password:</label><br>
-                <input type="text" name="password" placeholder="mypassword" required>
-              <br>
+                <input type="text" name="password" placeholder="mypassword" required><br>
+              
               <div class="signin-submit">
               <!-- TODO: submit event handler sends username/password to /api/auth/signin -->
               <!-- DONE: server returns token with username & user._id (or error) -->
@@ -134,9 +134,9 @@
 
             <div id="domains-form">
               <form name="domains" action="submit" method="post" accept-charset="UTF-8">
-                <label for="domain">Domain:<br></label><br>
+                <label for="domain">Domain:</label><br>
                   <input type="text" name="domain" placeholder="goaldomain" required><br>
-                <label for="description">Description:<br></label><br>
+                <label for="description">Description:</label><br>
                   <input type="text" name="description" placeholder="description" required><br>
               
               <div class="domain-submit">
@@ -158,11 +158,11 @@
 
             <div id="timeblock-form">
               <form name="timeblock" action="submit" method="post" accept-charset="UTF-8">
-                <label for="startTime">Start:<br></label><br>
+                <label for="startTime">Start:</label><br>
                   <input type="text" name="startTime" placeholder="start time" required><br>
-                <label for="endTime">End:<br></label><br>
+                <label for="endTime">End:</label><br>
                   <input type="text" name="endTime" placeholder="end time"><br>
-                <label for="description">Description:<br></label><br>
+                <label for="description">Description:</label><br>
                   <input type="text" name="description" placeholder="description" required><br>
                 
                 <!-- Dropdown for activity/domain tags -->
