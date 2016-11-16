@@ -38,10 +38,10 @@ describe('TimeBlock', () => {
     domain: 'social'
   };
 
-  it('post', done => {
+  it.only('post', done => {
     request
       .post('/api/timeblocks')
-      // .set('Authorization', token)
+      .set('Authorization', token)
       .send(testBlock)
       .then(res => {
         const block = res.body;
