@@ -13,7 +13,9 @@ function generateRandomTimeBlocks(numBlocks, starting) {
     let blk = new TimeBlock({
       description: 'Thing ' + i,
       startTime: start_time,
-      endTime: end_time
+      endTime: end_time,
+      activity: 'piano',
+      domain: 'personal'
     });
     blk.save();
   }

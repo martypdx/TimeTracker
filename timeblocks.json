@@ -1,0 +1,10 @@
+{"_id":{"$oid":"582ba74d6e6c610a1ad82440"},"description":"Thing 0","startTime":{"$date":"2016-11-16T00:24:45.873Z"},"endTime":{"$date":"2016-11-16T16:24:45.873Z"},"activity":"piano","domain":"personal","__v":0}
+{"_id":{"$oid":"582ba74d6e6c610a1ad82441"},"description":"Thing 1","startTime":{"$date":"2016-11-16T03:24:45.873Z"},"endTime":{"$date":"2016-11-16T16:24:45.873Z"},"activity":"piano","domain":"personal","__v":0}
+{"_id":{"$oid":"582ba74d6e6c610a1ad82442"},"description":"Thing 2","startTime":{"$date":"2016-11-16T03:24:45.873Z"},"endTime":{"$date":"2016-11-16T16:24:45.873Z"},"activity":"piano","domain":"personal","__v":0}
+{"_id":{"$oid":"582ba74d6e6c610a1ad82443"},"description":"Thing 3","startTime":{"$date":"2016-11-16T05:24:45.873Z"},"endTime":{"$date":"2016-11-16T16:24:45.873Z"},"activity":"piano","domain":"personal","__v":0}
+{"_id":{"$oid":"582ba74d6e6c610a1ad82444"},"description":"Thing 4","startTime":{"$date":"2016-11-16T07:24:45.873Z"},"endTime":{"$date":"2016-11-16T16:24:45.873Z"},"activity":"piano","domain":"personal","__v":0}
+{"_id":{"$oid":"582ba74d6e6c610a1ad82445"},"description":"Thing 5","startTime":{"$date":"2016-11-16T09:24:45.873Z"},"endTime":{"$date":"2016-11-16T16:24:45.873Z"},"activity":"piano","domain":"personal","__v":0}
+{"_id":{"$oid":"582ba74d6e6c610a1ad82446"},"description":"Thing 6","startTime":{"$date":"2016-11-16T12:24:45.873Z"},"endTime":{"$date":"2016-11-16T16:24:45.873Z"},"activity":"piano","domain":"personal","__v":0}
+{"_id":{"$oid":"582ba74d6e6c610a1ad82447"},"description":"Thing 7","startTime":{"$date":"2016-11-16T12:24:45.873Z"},"endTime":{"$date":"2016-11-16T16:24:45.873Z"},"activity":"piano","domain":"personal","__v":0}
+{"_id":{"$oid":"582ba74d6e6c610a1ad82448"},"description":"Thing 8","startTime":{"$date":"2016-11-16T12:24:45.873Z"},"endTime":{"$date":"2016-11-16T16:24:45.873Z"},"activity":"piano","domain":"personal","__v":0}
+{"_id":{"$oid":"582ba74d6e6c610a1ad82449"},"description":"Thing 9","startTime":{"$date":"2016-11-16T15:24:45.873Z"},"endTime":{"$date":"2016-11-16T16:24:45.873Z"},"activity":"piano","domain":"personal","__v":0}
