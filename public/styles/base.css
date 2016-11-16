@@ -40,9 +40,19 @@ a:hover, a:focus a:visited {
   color: #6e4a26;
 }
 
-
+/* Signin-page */
 #signin {
   padding: 1%;
   text-align: center;
+}
+
+#signin-form ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+#signin-form li {
+  display: inline-block;
 }
 
