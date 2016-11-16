@@ -76,8 +76,6 @@ describe('TimeBlock', () => {
   it('throws 403 on put with bad token', done => {
     let newDescription = 'had lunch with Mark';
 
-
-
     request
       .put(`/api/timeblocks/${testBlock._id}`)
       .set('Authorization', 'badtoken')
@@ -109,7 +107,7 @@ describe('TimeBlock', () => {
   it('delete', done => {
     request
       .del(`/api/timeblocks/${testBlock._id}`)
-      // .set('Authorization', token)
+      .set('Authorization', token)
       .then(res => {
         expect(res.body).to.eql(testBlock);
         return;
@@ -117,7 +115,7 @@ describe('TimeBlock', () => {
       .then(() => {
         return request
           .get(`/api/timeblocks/${testBlock._id}`)
-          // .set('Authorization', token)
+          .set('Authorization', token)
           .then(res => {
             console.log('res.body', res.body);
           })
@@ -129,6 +127,21 @@ describe('TimeBlock', () => {
       .catch(done);
   });
 
+  it('throws err if given invalid token on delete', done => {
+    request
+      .del(`/api/timeblocks/${testBlock._id}`)
+      .set('Authorization', 'badtoken')
+      .then(res => {
+        done('should not be 200, OK');
+        return;
+      })
+      .catch(err => {
+            expect(err).to.be.ok;
+            return done();
+      })
+// should refactor to test for whether block was deleted if given bad token. (which it shouldn't')
+      .catch(done);
+  });
   
 
 });
