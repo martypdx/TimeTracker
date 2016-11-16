@@ -57,29 +57,28 @@
           <h1>Welcome to Time Tracker!</h1>
 
           <div id="signin-form">
-            <h2>Sign-in</h2>
             <form name="signin" action="submit" method="post" accept-charset="UTF-8">
-              <ul>
-                <li><label for="username">Username:<br></label>
-                <input type="text" name="username" placeholder="myusername" required></li>
-                <li><label for="password">Password:<br></label>
-                <input type="text" name="password" placeholder="mypassword" required></li>
-                <li><input type="submit" value="Sign-in"></li>
-                <li><input type="checkbox" value="Stay signed-in"></li>
-              </ul>
+              <label for="username">Username:<br></label>
+                <input type="text" name="username" placeholder="myusername" required>
+              <label for="password">Password:<br></label>
+                <input type="text" name="password" placeholder="mypassword" required>
+                
+              <div class="signin-submit">
+                <input type="submit" value="Sign-in">
+                <input type="checkbox" value="Stay signed-in">
+                <a href='#'>New user? Register here</a>
+                <a href='#'>Password help</a>
             </form>
-            <!-- Checkbox to stay signed in -->
-            <p id="new-user">New user? Create an account here! <!-- Link to signup-page --> </p>
           </div>
 
       <section id="signup-page" class="tab-content">
         <div id="about">
-          <p id="pitch">This web app was designed with habit-builders in mind. We'll help you identify where your time is being spent in the activities you regularly enagage with, and assist you in aligning that awareness with the achievement of bigger goals. You choose what goals are most meaningful to you, and we'll keep you updated on how it's all coming together. Whether you're setting your sights on forming new habits or improving ones you already have, make time mindfulness work for you!</p>
+          <h1>Create an account</h1>
+            <p id="pitch">This web app was designed with habit-builders in mind. We'll help you identify where your time is being spent in the activities you regularly enagage with, and assist you in aligning that awareness with the achievement of bigger goals. You choose what goals are most meaningful to you, and we'll keep you updated on how it's all coming together. Whether you're setting your sights on forming new habits or improving ones you already have, make time mindfulness work for you!</p>
         </div>
 
         <div id="create-account">
-          <h1>Create an account</h1>
-            <p>Enter your information</p>
+          <p>Enter your information</p>
         </div>
 
           <div id="signup-form">
