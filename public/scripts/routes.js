@@ -1,7 +1,7 @@
-// page('/', dashboardController.index);
+page('/', dashboardController.index);
 
-// page('/signup', signinController.index);
+page('/signup', signinController.index);
 
-// page('/signin', signinController.index);
+page('/signin', signinController.index);
 
-// page();
+page();
