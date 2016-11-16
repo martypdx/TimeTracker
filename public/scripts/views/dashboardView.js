@@ -21,4 +21,9 @@
     })
 
   })
+}
+dashboardView.handleSumbitTimeblock = function() {
+  $.ajax({
+    url: '/api/users/timeblocks'
+  })
 })
