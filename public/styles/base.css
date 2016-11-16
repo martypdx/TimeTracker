@@ -1,0 +1,58 @@
+body {
+  background-color: #efeeee;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1em;
+  color: #0b1440;
+}
+
+h1, h2 {
+  font-family: 'Abril Fatface', cursive;
+}
+
+/* Header: logo/headline */
+.headline h1 {
+  font-size: 4em;
+  text-align: left;
+}
+
+.signin h1 {
+  font-size: 2.5em;
+}
+
+/* Header: main-nav */
+.main-nav ul {
+  list-style-type: none;
+  text-align: right;
+  padding: 0;
+}
+
+.main-nav li {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.75em;
+}
+
+a, a:link, a:active {
+  color: #0b1440;
+  text-decoration: none;
+}
+
+a:hover, a:focus a:visited {
+  color: #6e4a26;
+}
+
+/* Signin-page */
+#signin {
+  padding: 1%;
+  text-align: center;
+}
+
+#signin-form ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+#signin-form li {
+  display: inline-block;
+}
+
