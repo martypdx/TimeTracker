@@ -54,16 +54,23 @@
 
     <div class="tab-container">
       <section id="landing-page" class="tab-content">
-        <div class="signin">
           <h1>Welcome to Time Tracker!</h1>
 
           <div id="signin-form">
             <h2>Sign-in</h2>
-            <!-- Username and password form -->
+            <form name="signin" action="submit" method="post" accept-charset="UTF-8">
+              <ul>
+                <li><label for="username">Username:<br></label>
+                <input type="text" name="username" placeholder="myusername" required></li>
+                <li><label for="password">Password:<br></label>
+                <input type="text" name="password" placeholder="mypassword" required></li>
+                <li><input type="submit" value="Sign-in"></li>
+                <li><input type="checkbox" value="Stay signed-in"></li>
+              </ul>
+            </form>
             <!-- Checkbox to stay signed in -->
             <p id="new-user">New user? Create an account here! <!-- Link to signup-page --> </p>
           </div>
-        </div>
 
       <section id="signup-page" class="tab-content">
         <div id="about">
