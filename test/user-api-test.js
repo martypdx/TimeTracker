@@ -49,7 +49,6 @@ describe('Users', () => {
       .put(`/api/users/${testUserA._id}`)
       .send({activities: {swimming: 2}, domains: {triathlon: 15}})
       .then( res => {
-        console.log('res', res.body);
         expect(res.body.activities).to.include.key('swimming');
         expect(res.body.activities).to.include.key('running');
         expect(res.body.domains).to.include.key('triathlon');
