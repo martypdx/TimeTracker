@@ -14,7 +14,7 @@ describe('TimeBlock', () => {
   });
 
   const request = chai.request(app);
-  let token = '';
+  // let token = '';
 
   //Adding a dummy user to generate token
   //TODO: uncomment lines that set auth token

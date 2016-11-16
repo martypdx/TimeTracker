@@ -23,27 +23,6 @@ describe('Users', () => {
     domains: {health: 20, work: 20}
   };
 
-  let testUserB = {
-    username: 'radDude',
-    password: 'reallyradpassword',
-    activities: {cooking: 7, sleeping: 7, meals: 7},
-    domains: {'self-care': 20}
-  };
-
-  let timeBlockA = {
-    description: 'run up Mt. Tabor',
-    startTime: new Date(2016, 10, 15, 12), 
-    endTime: new Date(2016, 10, 15, 13), 
-    activity: 'running',
-    domain: 'health'
-  };
-
-  let timeBlockB = {
-    description: 'go on a bike ride',
-    startTime: new Date(2016, 10, 15, 20),
-    endTime: new Date(2016, 10, 15, 21)
-  };
-
 //This creates a user with the original test password, not the hash
   before(done => {
     new User (testUserA).save()
@@ -76,7 +55,7 @@ describe('Users', () => {
         expect(res.body.domains).to.include.key('triathlon');
         expect(res.body.domains).to.include.key('health');
         done();
-        
+
       })
       .catch(done);
   });
