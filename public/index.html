@@ -87,9 +87,9 @@
 
           <div id="signup-form">
             <form name="signup" action="submit" method="post" accept-charset="UTF-8">
-              <label for="username">Username:<br></label>
+              <label for="username">Username:<br></label><br>
                 <input type="text" name="username" placeholder="myusername" required>
-              <label for="password">Password:<br></label>
+              <label for="password">Password:<br></label><br>
                 <input type="text" name="password" placeholder="mypassword" required>
                 
               <div class="signup-submit">
@@ -113,9 +113,9 @@
 
             <div id="activities-form">
               <form name="activities" action="submit" method="post" accept-charset="UTF-8">
-                <label for="activity">Activity:<br></label>
+                <label for="activity">Activity:<br></label><br>
                   <input type="text" name="activity" placeholder="myactivity" required>
-                <label for="description">Description:<br></label>
+                <label for="description">Description:<br></label><br>
                   <input type="text" name="description" placeholder="description" required>
                 
               <div class="activity-submit">
@@ -134,9 +134,9 @@
 
             <div id="domains-form">
               <form name="domains" action="submit" method="post" accept-charset="UTF-8">
-                <label for="domain">Domain:<br></label>
+                <label for="domain">Domain:<br></label><br>
                   <input type="text" name="domain" placeholder="goaldomain" required>
-                <label for="description">Description:<br></label>
+                <label for="description">Description:<br></label><br>
                   <input type="text" name="description" placeholder="description" required>
                 
               <div class="domain-submit">
@@ -158,23 +158,23 @@
 
             <div id="timeblock-form">
               <form name="timeblock" action="submit" method="post" accept-charset="UTF-8">
-                <label for="startTime">Start:<br></label>
+                <label for="startTime">Start:<br></label><br>
                   <input type="text" name="startTime" placeholder="start time" required>
-                <label for="endTime">End:<br></label>
+                <label for="endTime">End:<br></label><br>
                   <input type="text" name="endTime" placeholder="end time">
-                <label for="description">Description:<br></label>
+                <label for="description">Description:<br></label><br>
                   <input type="text" name="description" placeholder="description" required>
                 
                 <!-- Dropdown for activity/domain tags -->
                 <select>
                   <!-- TODO: generate from /api/users/activities -->
                   <option selected value="base">Please select an activity</option>
-                </select>
+                </select><br>
 
                 <select>
                   <!-- TODO: generate from /api/users/domains -->
                   <option selected value="base">Please select a goal domain</option>
-                </select>
+                </select><br>
               
               <div class="timeblock-save">
               <!-- TODO: AJAX call to POST /api/timeblocks -->
