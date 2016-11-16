@@ -6,7 +6,7 @@ chai.use(chaiHttp);
 const connection = require('../lib/setup-mongoose');
 const app = require('../lib/app');
 
-describe.skip('TimeBlock', () => {
+describe('TimeBlock', () => {
   before(done => {
     const drop = () => connection.db.dropDatabase(done);
     if(connection.readyState === 1) drop();
@@ -14,20 +14,20 @@ describe.skip('TimeBlock', () => {
   });
 
   const request = chai.request(app);
-  // let token = '';
+  let token = '';
 
-  //Adding a dummy user to generate token
-  //TODO: uncomment lines that set auth token
-  // before(done => {
-  //   request
-  //     .post('/auth/signup')
-  //     .send({username: 'testUser', password: 'testPassword'})
-  //     .then(res => {
-  //       expect(token = res.body.token).to.be.ok;
-  //       done();
-  //     })
-  //     .catch(done);
-  // });
+  // Adding a dummy user to generate token
+  // TODO: uncomment lines that set auth token
+  before(done => {
+    request
+      .post('/api/auth/signup')
+      .send({username: 'testUser', password: 'testPassword'})
+      .then(res => {
+        expect(token = res.body.token).to.be.ok;
+        done();
+      })
+      .catch(done);
+  });
 
   let testBlock = {
     //might need userId once we add authorization
@@ -75,9 +75,10 @@ describe.skip('TimeBlock', () => {
   it('get', done => {
     request
       .get(`/api/timeblocks/${testBlock._id}`)
-      // .set('Authorization', token)
+      .set('Authorization', token)
       .then(res => {
         const block = res.body;
+        console.log('TESTBLOCK id', testBlock._id);
         expect(block).to.eql(testBlock);
         done();
       })

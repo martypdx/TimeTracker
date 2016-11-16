@@ -8,7 +8,7 @@ const connection = require('../lib/setup-mongoose');
 
 const request = chai.request(app);
 
-describe('Auth', () => {
+describe.skip('Auth', () => {
 
 
   describe('unauthorized', () => {
