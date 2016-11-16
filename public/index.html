@@ -59,11 +59,11 @@
 
           <div id="signin-form">
             <form name="signin" action="submit" method="post" accept-charset="UTF-8">
-              <label for="username">Username:<br></label>
+              <label for="username">Username:</label><br>
                 <input type="text" name="username" placeholder="myusername" required>
-              <label for="password">Password:<br></label>
+              <label for="password">Password:</label><br>
                 <input type="text" name="password" placeholder="mypassword" required>
-                
+              <br>
               <div class="signin-submit">
               <!-- TODO: submit event handler sends username/password to /api/auth/signin -->
               <!-- DONE: server returns token with username & user._id (or error) -->
@@ -87,11 +87,11 @@
 
           <div id="signup-form">
             <form name="signup" action="submit" method="post" accept-charset="UTF-8">
-              <label for="username">Username:<br></label><br>
+              <label for="username">Username:</label><br>
                 <input type="text" name="username" placeholder="myusername" required><br>
-              <label for="password">Password:<br></label><br>
+              <label for="password">Password:</label><br>
                 <input type="text" name="password" placeholder="mypassword" required><br>
-                
+              
               <div class="signup-submit">
               <!-- TODO: submit event handler sends username/password to /api/auth/signup -->
               <!-- DONE: server returns token with username & user._id (or error) -->
@@ -113,11 +113,11 @@
 
             <div id="activities-form">
               <form name="activities" action="submit" method="post" accept-charset="UTF-8">
-                <label for="activity">Activity:<br></label><br>
+                <label for="activity">Activity:</label><br>
                   <input type="text" name="activity" placeholder="myactivity" required><br>
-                <label for="description">Description:<br></label><br>
+                <label for="description">Description:</label><br>
                   <input type="text" name="description" placeholder="description" required><br>
-                
+              
               <div class="activity-submit">
               <!-- TODO: AJAX call to POST /api/users/activities -->
                 <input type="submit" value="Track activity"><br>
@@ -138,7 +138,7 @@
                   <input type="text" name="domain" placeholder="goaldomain" required><br>
                 <label for="description">Description:<br></label><br>
                   <input type="text" name="description" placeholder="description" required><br>
-                
+              
               <div class="domain-submit">
               <!-- TODO: AJAX call to POST /api/users/domains -->
                 <input type="submit" value="Track goal domain"><br>
@@ -173,7 +173,7 @@
 
                 <select>
                   <!-- TODO: generate from /api/users/domains -->
-                  <option selected value="base">Please select a goal domain</option><br>
+                  <option selected value="base">Please select a goal domain</option>
                 </select><br>
               
               <div class="timeblock-save">
