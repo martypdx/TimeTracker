@@ -73,6 +73,26 @@ describe('TimeBlock', () => {
 
   });
 
+  it('throws 403 on put with bad token', done => {
+    let newDescription = 'had lunch with Mark';
+
+
+
+    request
+      .put(`/api/timeblocks/${testBlock._id}`)
+      .set('Authorization', 'badtoken')
+      .send({description: newDescription})
+      .then(() => {
+        done('should not be 200, ok');
+      })
+      .catch(err => {
+        expect(err).to.be.ok;
+        done();
+      })
+      .catch(done);
+
+  });
+
   it('get', done => {
     request
       .get(`/api/timeblocks/${testBlock._id}`)
