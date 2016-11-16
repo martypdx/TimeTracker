@@ -7,7 +7,7 @@ const User = require('../lib/models/user');
 const connection = require('../lib/setup-mongoose');
 const app = require('../lib/app');
 
-describe.skip('Users', () => {
+describe.only('Users', () => {
   before(done => {
     const drop = () => connection.db.dropDatabase(done);
     if (connection.readyState === 1) drop();
@@ -17,26 +17,46 @@ describe.skip('Users', () => {
   const request = chai.request(app);
 
   let testUserA = {
-    username: 'coolKid', 
-    password: 'reallygoodpassword',
+
     activities: {email: 7, running: 5, sleeping: 56, meals: 15},
     domains: {health: 20, work: 20}
   };
 
-//This creates a user with the original test password, not the hash
+
+  let token = '';
+  let testUser;
+
+  // Adding a dummy user to generate token
+  // TODO: uncomment lines that set auth token
   before(done => {
-    new User (testUserA).save()
-    .then(user => {
-      testUserA = user;
-      return done();
-    })
-    .catch(done);
+    request
+      .post('/api/auth/signup')
+      .send({username: 'testUser', password: 'testPassword'})
+      .then(res => {
+        expect(token = res.body.token).to.be.ok;
+        return request
+          .put('/api/users/mine')
+          .set('Authorization', token)
+          .send(testUserA)
+          // .then( user => {
+          //   console.log('got insite put then')
+          //   // console.log(user);
+          //   done()
+          // })
+      })
+      .then(user => {
+        console.log('got here');
+        done();
+      })
+      .catch(done);
   });
+
 
 //we're going to update to only send activities and domains (not username and password)  
   it('gets a user', done => {
     request
-      .get(`/api/users/${testUserA._id}`)
+      .get('/api/users/mine')
+      .set('Authorization', token)
       .then(res => {
         expect(res.body.activities).to.eql(testUserA.activities);
         done();
@@ -46,7 +66,8 @@ describe.skip('Users', () => {
 
   it('updates a user', done => {
     request
-      .put(`/api/users/${testUserA._id}`)
+      .put('/api/users/mine')
+      .set('Authorization', token)
       .send({activities: {swimming: 2}, domains: {triathlon: 15}})
       .then( res => {
         expect(res.body.activities).to.include.key('swimming');
