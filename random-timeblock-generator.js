@@ -21,6 +21,6 @@ function generateRandomTimeBlocks(numBlocks, starting) {
   }
 }
 
-generateRandomTimeBlocks(10, new Date());
+generateRandomTimeBlocks(20, new Date());
 
 connection.close();
