@@ -46,6 +46,7 @@ describe('TimeBlock', () => {
       .then(res => {
         const block = res.body;
         expect(block._id).to.be.ok;
+        expect(block.userId).to.be.ok;
         testBlock = block;
         done();
       })
