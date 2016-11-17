@@ -14,7 +14,7 @@
       url: '/api/auth/signup',
       data: {username, password},
       success: data => {
-        next();
+        next(data);
         //TODO: what else does this need to do?
       },
       error: (xkr, type, err) => {

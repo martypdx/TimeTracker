@@ -11,18 +11,18 @@
   };(function(module) {
 //TODO: Add to index.html
 
-  const manageToken = {};
+    const manageToken = {};
   
-  let ttToken; 
+    let ttToken; 
 
-  manageToken.getToken = () => {
-    if (!ttToken) ttToken = JSON.parse(localStorage.getItem('timetrackertoken'));
-    return ttToken;
-  };
+    manageToken.getToken = () => {
+      if (!ttToken) ttToken = JSON.parse(localStorage.getItem('timetrackertoken'));
+      return ttToken;
+    };
   
-  module.manageToken = manageToken;
+    module.manageToken = manageToken;
 
-})(window);
+  })(window);
   
   module.manageToken = manageToken;
 
