@@ -41,9 +41,11 @@
 
   dashboardController.reveal = function() {
     $('.tab-content').hide();
+    dashboardController.fetchWeeklySummaryData();
+
     let ctx = document.getElementById('chart_canvas');
     dashboardController.drawGraph(ctx);
-    // Because the landing page if signed in
+ 
     $('#dashboard-page').fadeIn('slow');
     
   };
