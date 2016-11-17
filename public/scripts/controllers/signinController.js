@@ -8,21 +8,21 @@
     
   };
 
-  signinController.postInfo = function(username, password, next) {
-    $.ajax({
-      type: 'POST',
-      url: '/api/auth/signin',
-      data: {username, password},
-      success: data => {
-        localStorage.setItem('timetrackertoken', data);
-        next();
-        //TODO: what else does this need to do?
-      },
-      error: (xkr, type, err) => {
-        //TODO: update with better error handler?
-        alert(`Error: ${err}. Please try again`);
-      }
-    });
+  signinController.postInfo = function(username, password) {
+    let user = {username: username, password: password};
+
+    superagent
+      .post('http://localhost:3000/api/auth/signin')
+      .send(user)
+      .then(res => {
+        alert('Signin successful');
+        let token = JSON.stringify(res.body.token);
+        localStorage.setItem('timetrackertoken', token);
+        console.log('got token from LS: ', JSON.parse(localStorage.getItem('timetrackertoken')));
+      })
+      .catch(err => {
+        alert(`${JSON.parse(err.response.text).error}. Please try again.`);
+      });
   };
 
   module.signinController = signinController;
