@@ -87,7 +87,7 @@
           <h1>Create an account</h1>
 
           <div id="signup-form">
-            <form name="signup" action="submit" method="post" accept-charset="UTF-8">
+            <form name="signup" action="" method="post" accept-charset="UTF-8">
               <label for="username">Username:</label><br>
                 <input type="text" name="username" placeholder="myusername" required><br>
               <label for="password">Password:</label><br>
@@ -97,9 +97,9 @@
               <!-- TODO: submit event handler sends username/password to /api/auth/signup -->
               <!-- DONE: server returns token with username & user._id (or error) -->
               <!-- TODO: token saved to localStorage, included in any AJAX calls to routes -->
-                <input id="signup-submit" type="submit" value="Create account"><br>
+                <button id="signup-submit" type="button" value="Create account">Create account</button><br>
                 <!-- TODO: redirect to manageView -->
-                <a href='#'>Setup and manage tracking</a>
+                <!--<a href='#'>Setup and manage tracking</a>-->
               </div>
             </form>
           </div>

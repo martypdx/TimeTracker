@@ -8,6 +8,15 @@
     
   };
 
+  signupController.submit = function () {
+    $('#signup-submit').on('click', event => {
+      event.preventDefault();
+      alert(event.type);
+    });
+  };
+
+  signupController.submit();
+
   signupController.postInfo = function(username, password) {
     let user = {username: username, password: password};
     console.log('USER: ', user, typeof user);
