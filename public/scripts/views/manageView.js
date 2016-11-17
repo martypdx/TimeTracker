@@ -15,8 +15,10 @@
 
 
 
-  manageView.handleSubmitInput = function () {
+  manageView.handleActivity = function () {
     $('#activity-submit').on('click', function (){
+
+      console.log('obj', obj);
       var activity = $('#activities-form select[name=activity]').val();
       var target = $('#activities-form input[name=target]').val(); 
 
@@ -28,21 +30,38 @@
      manageController.editUser(activities);
       // manageController.reveal();
     });
+  }
 
+  manageView.handleNewActivity = function() {
+//TODO: figure out why this is limiting to two activities in the console. 
     $('#new-activity-submit').on('click', function () {
-      var newactivity = $('activities-form input[name=new-activity]').val();
-      var target = $('new-activities-form input[name=target]').val();
-    })
 
+      console.log('obj', obj);
+      var newactivity = $('#new-activities-form input[name=new-activity]').val();
+      var target = $('#new-activities-form input[name=target]').val();
 
+      var obj = {};
+      obj[newactivity] = target;
+      var activities = {activities: obj};
 
-    $('#domain-submit').on('click', function (){
-      // this is where the ajax call is made to post user domain input to /api/users/domains
-      // manageController.reveal();
-     });
+      manageController.editUser(activities);
+    });
   };
 
-  manageView.handleSubmitInput();
+
+
+    // $('#domain-submit').on('click', function (){
+    //   // this is where the ajax call is made to post user domain input to /api/users/domains
+    //   // manageController.reveal();
+    //  });
+
+
+  // }
+
+
+
+  manageView.handleActivity();
+  manageView.handleNewActivity();
 
   module.manageView = manageView;
 
