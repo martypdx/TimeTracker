@@ -27,10 +27,10 @@
       var activities = {activities: obj};
 
 
-     manageController.editUser(activities);
+      manageController.editUser(activities);
       // manageController.reveal();
     });
-  }
+  };
 
   manageView.handleNewActivity = function() {
 //TODO: figure out why this is limiting to two activities in the console. 
