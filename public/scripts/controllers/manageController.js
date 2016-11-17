@@ -24,13 +24,15 @@
   };
 
   manageController.editUser = function(obj, next) { 
+
+    console.log('edituser', tttoken);
     //obj passed in should be an object with activities or domains in this format {activites: {act1: 5, act2: 10}, domains: {dom1: 5, dom2: 10}}
     superagent
       .put('/api/users')
       .set('Authorization', tttoken)
       .send(obj)
       .then(res => {
-        console.log(res.body);
+        console.log('success', res.body);
       })
       .catch(err => {
         alert(JSON.parse(err.response.text).error);

@@ -113,18 +113,37 @@
           <h1>Enter your activities</h1>
 
             <div id="activities-form">
-              <form name="activities" action="submit" method="post" accept-charset="UTF-8">
+              <form name="activities" action="" method="" accept-charset="UTF-8">
                 <label for="activity">Activity:</label><br>
-                  <input type="text" name="activity" placeholder="myactivity" required><br>
-                <label for="description">Description:</label><br>
-                  <input type="text" name="description" placeholder="description" required><br>
+                  <select name="activity" id="activity-select">
+                    <option value="">--Select Activity</option>
+                    <option value="running">running</option> 
+                    <option value="swimming">swimming</option>
+                    <option value="biking">biking</option>
+                  </select><br>
+                <label for="target">Target:</label><br>
+                  <input type="text" name="target" placeholder="target" required><br>
               
               <div class="activity-submit">
               <!-- TODO: AJAX call to POST /api/users/activities -->
-                <input id="activity-submit" type="submit" value="Track activity"><br>
+                <button id="activity-submit" type="button">Track Activity</button><br>
                 <!-- TODO: redirect to dashboardView -->
                 <!-- TODO: toggle between activity and goal graph views -->
-                <a href='#'>Activity tracker</a>
+              </div>
+            </form>
+
+            <div id="new-activities-form">
+              <form name="new-activities" action="" method="" accept-charset="UTF-8">
+                <label for="new-activity">New Activity:</label><br>
+                  <input type="text" name="activity" placeholder="myactivity" required><br>
+                <label for="target">Target:</label><br>
+                  <input type="text" name="target" placeholder="target" required><br>
+              
+              <div class="activity-submit">
+              <!-- TODO: AJAX call to POST /api/users/activities -->
+                <button id="new-activity-submit" type="button" value="Track activity">Track Activity</button><br>
+                <!-- TODO: redirect to dashboardView -->
+                <!-- TODO: toggle between activity and goal graph views -->
               </div>
             </form>
           </div>
