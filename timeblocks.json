@@ -1,5 +1,5 @@
 {"userId": 1, "description":"Sleep","startTime":{"$date":"2016-11-16T22:24Z"},"endTime":{"$date":"2016-11-17T05:24Z"},"activity":"sleep","domain":"health"}
-{"userId": 1, "description":"Shower and shave","startTime":{"$date":"2016-11-17T05:24Z"},"endTime":{"$date":"2016-11-17T06:00Z"},"activity":"personal","domain":"personal"}
+{"userId": 1, "description":"Shower and shave","startTime":{"$date":"2016-11-17T05:24Z"},"endTime":{"$date":"2016-11-17T06:00Z"},"activity":"","domain":"personal"}
 {"userId": 1, "description":"Yoga","startTime":{"$date":"2016-11-17T06:00Z"},"endTime":{"$date":"2016-11-17T06:40Z"},"activity":"exercise","domain":"health"}
 {"userId": 1, "description":"Breakfast","startTime":{"$date":"2016-11-17T06:40Z"},"endTime":{"$date":"2016-11-17T07:00Z"},"activity":"eating","domain":"personal"}
 {"userId": 1, "description":"Commute","startTime":{"$date":"2016-11-17T07:00Z"},"endTime":{"$date":"2016-11-17T07:40Z"},"activity":"commuting","domain":""}
@@ -9,3 +9,12 @@
 {"userId": 1, "description":"Lunch","startTime":{"$date":"2016-11-17T12:00Z"},"endTime":{"$date":"2016-11-17T13:00Z"},"activity":"eating","domain":"personal"}
 {"userId": 1, "description":"Planning 401 project","startTime":{"$date":"2016-11-17T13:00Z"},"endTime":{"$date":"2016-11-17T13:30Z"},"activity":"meeting","domain":"school"}
 {"userId": 1, "description":"Coding aggregation pipeline","startTime":{"$date":"2016-11-17T13:30Z"},"endTime":{"$date":"2016-11-17T15:00Z"},"activity":"coding","domain":"school"}
+{"userId": 1, "description":"Coffee break","startTime":{"$date":"2016-11-17T15:00Z"},"endTime":{"$date":"2016-11-17T15:15Z"},"activity":"eating","domain":"personal"}
+{"userId": 1, "description":"Coding aggregation pipeline","startTime":{"$date":"2016-11-17T15:15Z"},"endTime":{"$date":"2016-11-17T17:00Z"},"activity":"coding","domain":"school"}
+{"userId": 1, "description":"Code review, PR merges, etc.","startTime":{"$date":"2016-11-17T17:00Z"},"endTime":{"$date":"2016-11-17T18:00Z"},"activity":"meeting","domain":"school"}
+{"userId": 1, "description":"Walk to Puppet","startTime":{"$date":"2016-11-17T18:15Z"},"endTime":{"$date":"2016-11-17T18:30Z"},"activity":"commuting","domain":""}
+{"userId": 1, "description":"Agile PDX meetup","startTime":{"$date":"2016-11-17T18:30Z"},"endTime":{"$date":"2016-11-17T20:00Z"},"activity":"networking","domain":"work"}
+{"userId": 1, "description":"Commute home on MAX","startTime":{"$date":"2016-11-17T20:00Z"},"endTime":{"$date":"2016-11-17T20:30Z"},"activity":"commuting","domain":""}
+{"userId": 1, "description":"Dinner","startTime":{"$date":"2016-11-17T20:30Z"},"endTime":{"$date":"2016-11-17T21:00Z"},"activity":"eating","domain":"health"}
+{"userId": 1, "description":"Watch TV","startTime":{"$date":"2016-11-17T21:00Z"},"endTime":{"$date":"2016-11-17T22:00Z"},"activity":"tv","domain":"entertainment"}
+{"userId": 1, "description":"Read in bed","startTime":{"$date":"2016-11-17T22:00Z"},"endTime":{"$date":"2016-11-17T22:30Z"},"activity":"reading","domain":"personal"}

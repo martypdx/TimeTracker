@@ -10,8 +10,13 @@ jQuery.ajax( // eslint-disable-line no-unused-vars, no-undef
     data: {
       labels: results.activity,
       datasets: [{
-        label: 'Hours',
-        data: results.hrs
+        label: 'Actual Hours',
+        data: results.hrs,
+        backgroundColor: '#382765'
+      }, {
+        label: 'Target Hours',
+        data: [ 8, 2, 3, 3, 5, 4, 2, 10 ],
+        backgroundColor: '#7BC225'
       }]
     }
   });
