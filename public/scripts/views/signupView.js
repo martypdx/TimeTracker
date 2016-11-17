@@ -8,8 +8,9 @@
 
       signupController.postInfo(username, password);
 
+
       console.log(username, password);
-      // this is where the username and password is being sent to /api/auth/signup
+      // TODO: Add page navigation to show manage user page.
       // signupController.reveal();
     });
   };

@@ -4,6 +4,7 @@
 
   signupController.reveal = function() {
     $('.tab-content').hide();
+    // TODO: add the correct id to reveal (manage user page???)
     $('#signup-page').fadeIn('slow');
     
   };
