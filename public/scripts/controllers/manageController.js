@@ -10,45 +10,48 @@
 
   var tttoken = manageToken.getToken();
 
-  manageController.getUser = function(next) {
-    $.ajax({
-      url:'/api/users/',
-      type: 'GET', 
-      headers: {Authorization: tttoken},
-      success: data => {
-        alert('Got it! Check console for res');
-        console.log(`Get user: ${data}`);
-        //TODO: add page render to handle this
-        next(data);
-      },
-      error: (xhr, type, err) => {
-        //TODO: update error handler;
-        alert(`Error: ${err}`);
-      }
-
-    });
+  manageController.getUser = function() {
+    superagent
+      .get('/api/users')
+      .set('Authorization', tttoken)
+      .then(res => {
+        alert('Got it');
+        console.log('Get user:', res.body);
+      })
+      .catch(err => {
+        alert(JSON.parse(err.response.text).error);
+      });
   };
 
   manageController.editUser = function(obj, next) { 
     //obj passed in should be an object with activities or domains in this format {activites: {act1: 5, act2: 10}, domains: {dom1: 5, dom2: 10}}
-
-    $.ajax({
-      url: '/api/users/',
-      type: 'PUT',
-      headers: {Authorization: tttoken},
-      data: obj,
-      success: data => {
-        //TODO: update this
-        if (data) alert(`User ${data.username}'s targets successfully updated`);
-        console.log(`PUT User: ${data}`);
-        next();
-        //TODO: add page render function to replace old tb with updated tb (which will get passed in as next)
-      }, 
-      error: (xhr, type, err)=> {
-        //TODO: write better handler;
-        alert(`Error: ${err}`);
-      }
-    });
+    superagent
+      .put('/api/users')
+      .set('Authorization', tttoken)
+      .send(obj)
+      .then(res => {
+        console.log(res.body);
+      })
+      .catch(err => {
+        alert(JSON.parse(err.response.text).error);
+      });
+    // $.ajax({
+    //   url: '/api/users/',
+    //   type: 'PUT',
+    //   headers: {Authorization: tttoken},
+    //   data: obj,
+    //   success: data => {
+    //     //TODO: update this
+    //     if (data) alert(`User ${data.username}'s targets successfully updated`);
+    //     console.log(`PUT User: ${data}`);
+    //     next();
+    //     //TODO: add page render function to replace old tb with updated tb (which will get passed in as next)
+    //   }, 
+    //   error: (xhr, type, err)=> {
+    //     //TODO: write better handler;
+    //     alert(`Error: ${err}`);
+    //   }
+    // });
   };
 
   manageController.getAllTimeBlocks = next => {
