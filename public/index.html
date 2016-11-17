@@ -37,11 +37,11 @@
     <!-- TODO: Add logout option (stretch: "Hello, User") -->
     <nav class="main-nav">
       <ul>
-        <li class="navtab"><a href="/signin">Sign-in</a></li>
-        <li class="navtab"><a href="/signup">Create Account</a></li>
+        <li class="navtab"><a href="/api/auth/signin">Sign-in</a></li>
+        <li class="navtab"><a href="/api/auth/signup">Create Account</a></li>
         <li class="navtab"><a href="/manage">Manage Account</a></li>
         <li class="navtab"><a href="/dashboard">Tracker Dashboard</a></li>
-        <li class="navtab"><a href="/signin">Sign-out</a></li>
+        <li class="navtab"><a href="/signout">Sign-out</a></li>
       </ul>
     </nav>
     </div>
@@ -69,7 +69,7 @@
               <!-- TODO: submit event handler sends username/password to /api/auth/signin -->
               <!-- DONE: server returns token with username & user._id (or error) -->
               <!-- TODO: token saved to localStorage, included in any AJAX calls to routes -->
-                <input type="submit" value="Sign-in"><br>
+                <input id="signin-submit" type="submit" value="Sign-in"><br>
                 <!-- TODO: redirect to signupView -->
                 <a href='#'>Create new account</a>
               </div>
@@ -97,7 +97,7 @@
               <!-- TODO: submit event handler sends username/password to /api/auth/signup -->
               <!-- DONE: server returns token with username & user._id (or error) -->
               <!-- TODO: token saved to localStorage, included in any AJAX calls to routes -->
-                <input type="submit" value="Create account"><br>
+                <input id="signup-submit" type="submit" value="Create account"><br>
                 <!-- TODO: redirect to manageView -->
                 <a href='#'>Setup and manage tracking</a>
               </div>
@@ -121,7 +121,7 @@
               
               <div class="activity-submit">
               <!-- TODO: AJAX call to POST /api/users/activities -->
-                <input type="submit" value="Track activity"><br>
+                <input id="activity-submit" type="submit" value="Track activity"><br>
                 <!-- TODO: redirect to dashboardView -->
                 <!-- TODO: toggle between activity and goal graph views -->
                 <a href='#'>Activity tracker</a>
@@ -142,7 +142,7 @@
               
               <div class="domain-submit">
               <!-- TODO: AJAX call to POST /api/users/domains -->
-                <input type="submit" value="Track goal domain"><br>
+                <input id="domain-submit" type="submit" value="Track goal domain"><br>
                 <!-- TODO: redirect to dashboardView -->
                 <a href='#'>Goal domain tracker</a>
               </div>
@@ -167,12 +167,12 @@
                   <input type="text" name="description" placeholder="description" required><br>
                 
                 <!-- Dropdown for activity/domain tags -->
-                <select>
+                <select id="activity-tag">
                   <!-- TODO: generate from /api/users/activities -->
                   <option selected value="base">Please select an activity</option><br>
                 </select><br>
 
-                <select>
+                <select id="domain-tag">
                   <!-- TODO: generate from /api/users/domains -->
                   <option selected value="base">Please select a goal domain</option>
                 </select><br>
@@ -214,10 +214,15 @@
 
   <!--View scripts-->
   <script type="text/javascript" src="scripts/views/signupView.js"></script>
-  <script type="text/javascript" src="scripts/views/setupView.js"></script>
+  <script type="text/javascript" src="scripts/views/signinView.js"></script>
   <script type="text/javascript" src="scripts/views/dashboardView.js"></script>
+  <script type="text/javascript" src="scripts/views/manageView.js"></script>
  
   <!--Controller scripts-->
-  <!-- TODO: need to make sure appropriate controllers put here -->
+  <!-- DONE: need to make sure appropriate controllers put here -->
+  <script type="text/javascript" src ="scripts/controllers/signupController.js"></script>
+  <script type="text/javascript" src ="scripts/controllers/signinController.js"></script>
+  <script type="text/javascript" src ="scripts/controllers/dashboardController.js"></script>
+  <script type="text/javascript" src ="scripts/controllers/manageController.js"></script>
 </body>
 </html>
