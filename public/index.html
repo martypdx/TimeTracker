@@ -8,13 +8,13 @@
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Raleway" rel="stylesheet"> 
 
   <!-- CSS script links -->
-  <link rel='stylesheet' href='vendor/styles/normalize.css'>
+  <link rel="stylesheet" href='vendor/styles/normalize.css'>
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/module.css">
 
   <!-- Timeblock template -->
-  <!--<script id="timeblock-template" type="text/x-handlebars-template">
+  <!-- <script id="timeblock-template" type="text/x-handlebars-template">
     <article>
       <ul>
         <li id="entry-date">{{ date }}</li>
@@ -26,102 +26,185 @@
         <li id="goal"><a href="{{ data }}" target="_blank">{{ goal }}</a></li>
       </ul>
     </article>
-  </script>-->
+  </script> -->
 </head>
 
 <body>
   <div id="container">
   <header class="main-header">
     <div class="header-wrap">
-
-    <!--Main nav-->
+    
+    <!-- TODO: Add logout option (stretch: "Hello, User") -->
     <nav class="main-nav">
       <ul>
-        <li class="navtab"><a href="/signin">Home</a></li>
-        <li class="navtab"><a href="/signup">About</a></li>
-        <li class="navtab"><a href="/manage">Manage</a></li>
-        <li class="navtab"><a href="/dashboard">Dashboard</a></li>
+        <li class="navtab"><a href="/api/auth/signin">Sign-in</a></li>
+        <li class="navtab"><a href="/api/auth/signup">Create Account</a></li>
+        <li class="navtab"><a href="/manage">Manage Account</a></li>
+        <li class="navtab"><a href="/dashboard">Tracker Dashboard</a></li>
+        <li class="navtab"><a href="/signout">Sign-out</a></li>
       </ul>
     </nav>
     </div>
   </header>
 
   <main>
-    <!--Background image-->
     <div class="background-image">
       <img src="images/header.jpeg"/>
     </div>
 
     <div class="tab-container">
+      <!-- landingView if not signed in -->
+      <!-- TODO: differentiate if signed in landingView = dashboardView -->
       <section id="landing-page" class="tab-content">
           <h1>Welcome to Time Tracker!</h1>
 
           <div id="signin-form">
             <form name="signin" action="submit" method="post" accept-charset="UTF-8">
-              <label for="username">Username:<br></label>
-                <input type="text" name="username" placeholder="myusername" required>
-              <label for="password">Password:<br></label>
-                <input type="text" name="password" placeholder="mypassword" required>
-                
+              <label for="username">Username:</label><br>
+                <input type="text" name="username" placeholder="myusername" required><br>
+              <label for="password">Password:</label><br>
+                <input type="text" name="password" placeholder="mypassword" required><br>
+              
               <div class="signin-submit">
-                <input type="submit" value="Sign-in">
-                <input type="checkbox" value="Stay signed-in">
-                <a href='#'>New user? Register here</a>
-                <a href='#'>Password help</a>
+              <!-- TODO: submit event handler sends username/password to /api/auth/signin -->
+              <!-- DONE: server returns token with username & user._id (or error) -->
+              <!-- TODO: token saved to localStorage, included in any AJAX calls to routes -->
+                <input id="signin-submit" type="submit" value="Sign-in"><br>
+                <!-- TODO: redirect to signupView -->
+                <a href='#'>Create new account</a>
+              </div>
             </form>
           </div>
-
+      
+      <!-- signupView -->
       <section id="signup-page" class="tab-content">
         <div id="about">
-          <h1>Create an account</h1>
+          <h1>About Time Tracker</h1>
             <p id="pitch">This web app was designed with habit-builders in mind. We'll help you identify where your time is being spent in the activities you regularly enagage with, and assist you in aligning that awareness with the achievement of bigger goals. You choose what goals are most meaningful to you, and we'll keep you updated on how it's all coming together. Whether you're setting your sights on forming new habits or improving ones you already have, make time mindfulness work for you!</p>
         </div>
 
         <div id="create-account">
-          <p>Enter your information</p>
-        </div>
+          <h1>Create an account</h1>
 
           <div id="signup-form">
-            <!-- Username and password form -->
-          </div>
-
-          <div id="setup-link">
-            <p>Start tracking! <!-- Link to setup-page --> </p>
+            <form name="signup" action="submit" method="post" accept-charset="UTF-8">
+              <label for="username">Username:</label><br>
+                <input type="text" name="username" placeholder="myusername" required><br>
+              <label for="password">Password:</label><br>
+                <input type="text" name="password" placeholder="mypassword" required><br>
+              
+              <div class="signup-submit">
+              <!-- TODO: submit event handler sends username/password to /api/auth/signup -->
+              <!-- DONE: server returns token with username & user._id (or error) -->
+              <!-- TODO: token saved to localStorage, included in any AJAX calls to routes -->
+                <input id="signup-submit" type="submit" value="Create account"><br>
+                <!-- TODO: redirect to manageView -->
+                <a href='#'>Setup and manage tracking</a>
+              </div>
+            </form>
           </div>
         </div>
       </section>
 
-      <section id="setup-page" class="tab-content">
-        <!-- Do we need templating here? -->
+      <!-- manageView -->
+      <!-- TODO: add delete entry functionality -->
+      <section id="manage-page" class="tab-content">
         <div id="activities">
-          <!-- Activity entry form -->
+          <h1>Enter your activities</h1>
+
+            <div id="activities-form">
+              <form name="activities" action="submit" method="post" accept-charset="UTF-8">
+                <label for="activity">Activity:</label><br>
+                  <input type="text" name="activity" placeholder="myactivity" required><br>
+                <label for="description">Description:</label><br>
+                  <input type="text" name="description" placeholder="description" required><br>
+              
+              <div class="activity-submit">
+              <!-- TODO: AJAX call to POST /api/users/activities -->
+                <input id="activity-submit" type="submit" value="Track activity"><br>
+                <!-- TODO: redirect to dashboardView -->
+                <!-- TODO: toggle between activity and goal graph views -->
+                <a href='#'>Activity tracker</a>
+              </div>
+            </form>
+          </div>
         </div>
 
         <div id="goals">
-          <!-- Goal entry form -->
+          <h1>Enter your bigger-picture goal domains</h1>
+
+            <div id="domains-form">
+              <form name="domains" action="submit" method="post" accept-charset="UTF-8">
+                <label for="domain">Domain:</label><br>
+                  <input type="text" name="domain" placeholder="goaldomain" required><br>
+                <label for="description">Description:</label><br>
+                  <input type="text" name="description" placeholder="description" required><br>
+              
+              <div class="domain-submit">
+              <!-- TODO: AJAX call to POST /api/users/domains -->
+                <input id="domain-submit" type="submit" value="Track goal domain"><br>
+                <!-- TODO: redirect to dashboardView -->
+                <a href='#'>Goal domain tracker</a>
+              </div>
+            </form>
+          </div>
         </div>
       </section>
 
+      <!-- dashboardView, landingView if already signed in -->
       <section id="dashboard-page" class="tab-content">
         <div id="time-entry">
-          <!-- Timeblock entry form -->
-          <button id="submit-block" type="submit">SUBMIT</button>
-          <!-- Need to write logic for drawChart upon submit event -->
+          <h1>Log the time you'd like to track</h1>
+            <h2>Tag your entry by activity and/or domain (optional)</h2>
+
+            <div id="timeblock-form">
+              <form name="timeblock" action="submit" method="post" accept-charset="UTF-8">
+                <label for="startTime">Start:</label><br>
+                  <input type="text" name="startTime" placeholder="start time" required><br>
+                <label for="endTime">End:</label><br>
+                  <input type="text" name="endTime" placeholder="end time"><br>
+                <label for="description">Description:</label><br>
+                  <input type="text" name="description" placeholder="description" required><br>
+                
+                <!-- Dropdown for activity/domain tags -->
+                <select id="activity-tag">
+                  <!-- TODO: generate from /api/users/activities -->
+                  <option selected value="base">Please select an activity</option><br>
+                </select><br>
+
+                <select id="domain-tag">
+                  <!-- TODO: generate from /api/users/domains -->
+                  <option selected value="base">Please select a goal domain</option>
+                </select><br>
+              
+              <div class="timeblock-save">
+              <!-- TODO: AJAX call to POST /api/timeblocks -->
+                <input type="submit" value="Save entry"><br>
+                <!-- TODO: re-render of chart with time-entry form cleared -->
+                <!-- TODO: redirect to manageView -->
+                <a href='#'>Setup and manage tracking</a>
+              </div>
+            </form>
         </div>
       
-        <div class="weekly-chart-container">
-          <!-- Need to write logic for chart -->
-          <canvas id="chart_canvas" width="300" height="300"></canvas>
-        </div>
+        <div id="charts-container">
+          <!-- Pie describes how all time spent for all user activities/domains -->
+          <div class="pie-chart-container">
+            <!-- Mark to write logic for chart -->
+            <canvas id="chart_canvas" width="300" height="300"></canvas>
+          </div>
 
-        <div class="goal-chart-container">
-          <!-- Need to write logic for chart -->
-          <canvas id="chart_canvas" width="300" height="300"></canvas>
+          <!-- Bar describes specific time budget/target specific user activity/domain -->
+          <div class="bar-chart-container">
+            <!-- Mark to write logic for chart -->
+            <canvas id="chart_canvas" width="300" height="300"></canvas>
+         </div>
         </div>
+      </div>
+    </section>
   </main>
 
   <!--Scripts-->
-
   <!--Vendor scripts-->
   <script type="text/javascript" src="vendor/scripts/page.js"></script>
   <script src="vendor/scripts/handlebars-v4.0.5.js"></script>
@@ -131,11 +214,15 @@
 
   <!--View scripts-->
   <script type="text/javascript" src="scripts/views/signupView.js"></script>
-  <script type="text/javascript" src="scripts/views/setupView.js"></script>
+  <script type="text/javascript" src="scripts/views/signinView.js"></script>
   <script type="text/javascript" src="scripts/views/dashboardView.js"></script>
+  <script type="text/javascript" src="scripts/views/manageView.js"></script>
  
   <!--Controller scripts-->
-  <!-- Need to make sure appropriate controllers -->
-
+  <!-- DONE: need to make sure appropriate controllers put here -->
+  <script type="text/javascript" src ="scripts/controllers/signupController.js"></script>
+  <script type="text/javascript" src ="scripts/controllers/signinController.js"></script>
+  <script type="text/javascript" src ="scripts/controllers/dashboardController.js"></script>
+  <script type="text/javascript" src ="scripts/controllers/manageController.js"></script>
 </body>
 </html>

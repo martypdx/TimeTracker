@@ -14,20 +14,20 @@ describe('TimeBlock', () => {
   });
 
   const request = chai.request(app);
-  // let token = '';
+  let token = '';
 
-  //Adding a dummy user to generate token
-  //TODO: uncomment lines that set auth token
-  // before(done => {
-  //   request
-  //     .post('/auth/signup')
-  //     .send({username: 'testUser', password: 'testPassword'})
-  //     .then(res => {
-  //       expect(token = res.body.token).to.be.ok;
-  //       done();
-  //     })
-  //     .catch(done);
-  // });
+  // Adding a dummy user to generate token
+  // TODO: uncomment lines that set auth token
+  before(done => {
+    request
+      .post('/api/auth/signup')
+      .send({username: 'testUser', password: 'testPassword'})
+      .then(res => {
+        expect(token = res.body.token).to.be.ok;
+        done();
+      })
+      .catch(done);
+  });
 
   let testBlock = {
     //might need userId once we add authorization
@@ -41,11 +41,12 @@ describe('TimeBlock', () => {
   it('post', done => {
     request
       .post('/api/timeblocks')
-      // .set('Authorization', token)
+      .set('Authorization', token)
       .send(testBlock)
       .then(res => {
         const block = res.body;
         expect(block._id).to.be.ok;
+        expect(block.userId).to.be.ok;
         testBlock = block;
         done();
       })
@@ -60,7 +61,7 @@ describe('TimeBlock', () => {
 
     request
       .put(`/api/timeblocks/${testBlock._id}`)
-      // .set('Authorization', token)
+      .set('Authorization', token)
       .send({description: newDescription})
       .then(res => {
         const block = res.body;
@@ -72,10 +73,28 @@ describe('TimeBlock', () => {
 
   });
 
+  it('throws 403 on put with bad token', done => {
+    let newDescription = 'had lunch with Mark';
+
+    request
+      .put(`/api/timeblocks/${testBlock._id}`)
+      .set('Authorization', 'badtoken')
+      .send({description: newDescription})
+      .then(() => {
+        done('should not be 200, ok');
+      })
+      .catch(err => {
+        expect(err).to.be.ok;
+        done();
+      })
+      .catch(done);
+
+  });
+
   it('get', done => {
     request
       .get(`/api/timeblocks/${testBlock._id}`)
-      // .set('Authorization', token)
+      .set('Authorization', token)
       .then(res => {
         const block = res.body;
         expect(block).to.eql(testBlock);
@@ -84,10 +103,24 @@ describe('TimeBlock', () => {
       .catch(done);
   });
 
+  it('get', done => {
+    request
+      .get(`/api/timeblocks/${testBlock._id}`)
+      .set('Authorization', 'badtoken')
+      .then(()=> {
+        done('should not be 200, OK');
+      })
+      .catch(err => {
+        expect(err).to.be.ok;
+        done();
+      })
+      .catch(done);
+  });
+
   it('delete', done => {
     request
       .del(`/api/timeblocks/${testBlock._id}`)
-      // .set('Authorization', token)
+      .set('Authorization', token)
       .then(res => {
         expect(res.body).to.eql(testBlock);
         return;
@@ -95,7 +128,7 @@ describe('TimeBlock', () => {
       .then(() => {
         return request
           .get(`/api/timeblocks/${testBlock._id}`)
-          // .set('Authorization', token)
+          .set('Authorization', token)
           .then(res => {
             console.log('res.body', res.body);
           })
@@ -107,6 +140,21 @@ describe('TimeBlock', () => {
       .catch(done);
   });
 
+  it('throws err if given invalid token on delete', done => {
+    request
+      .del(`/api/timeblocks/${testBlock._id}`)
+      .set('Authorization', 'badtoken')
+      .then(() => {
+        done('should not be 200, OK');
+        return;
+      })
+      .catch(err => {
+        expect(err).to.be.ok;
+        return done();
+      })
+// should refactor to test for whether block was deleted if given bad token. (which it shouldn't')
+      .catch(done);
+  });
   
 
 });
