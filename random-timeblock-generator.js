@@ -13,12 +13,14 @@ function generateRandomTimeBlocks(numBlocks, starting) {
     let blk = new TimeBlock({
       description: 'Thing ' + i,
       startTime: start_time,
-      endTime: end_time
+      endTime: end_time,
+      activity: 'piano',
+      domain: 'personal'
     });
     blk.save();
   }
 }
 
-generateRandomTimeBlocks(10, new Date());
+generateRandomTimeBlocks(20, new Date());
 
 connection.close();
