@@ -1,6 +1,6 @@
 (function(module) {
 
-  const dashboardcontroller = {};
+  const dashboardController = {};
 
   dashboardController.reveal = function() {
     $('.tab-content').hide();
