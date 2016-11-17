@@ -8,13 +8,14 @@
     
   };
 
-  signupController.postInfo = function(username, password) {
+  signupController.postInfo = function(username, password, next) {
     $.ajax({
       type: 'POST',
       url: '/api/auth/signup',
       data: {username, password},
       success: data => {
         localStorage.setItem('timetrackertoken', data);
+        next();
         //TODO: what else does this need to do?
       },
       error: (xkr, type, err) => {
