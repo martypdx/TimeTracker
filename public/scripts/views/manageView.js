@@ -81,6 +81,18 @@
     });
   };
 
+  manageView.addTimeBlock = function() {
+    $('#timeblock-submit').on('click', function () {
+
+      var timeblock = {};
+      timeblock.startTime = $('input[name=startTime]').val();
+      timeblock.endTime = $('input[name=endTime]').val();
+      timeblock.description = $('')
+
+      console.log('timeblock.startTime', timeblock.startTime, typeof timeblock.startTime);
+    });
+  };
+
 
 
     // $('#domain-submit').on('click', function (){
@@ -97,6 +109,7 @@
   manageView.handleNewActivity();
   manageView.handleDomain();
   manageView.handleNewDomain();
+  manageView.addTimeBlock();
 
   module.manageView = manageView;
 

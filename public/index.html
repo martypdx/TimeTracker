@@ -194,11 +194,11 @@
             <h2>Tag your entry by activity and/or domain (optional)</h2>
 
             <div id="timeblock-form">
-              <form name="timeblock" action="submit" method="post" accept-charset="UTF-8">
+              <form name="timeblock" action="" method="" accept-charset="UTF-8">
                 <label for="startTime">Start:</label><br>
-                  <input type="text" name="startTime" placeholder="start time" required><br>
+                  <input type="datetime-local" name="startTime" placeholder="start time" required><br>
                 <label for="endTime">End:</label><br>
-                  <input type="text" name="endTime" placeholder="end time"><br>
+                  <input type="datetime-local" name="endTime" placeholder="end time"><br>
                 <label for="description">Description:</label><br>
                   <input type="text" name="description" placeholder="description" required><br>
                 
@@ -206,16 +206,22 @@
                 <select id="activity-tag">
                   <!-- TODO: generate from /api/users/activities -->
                   <option selected value="base">Please select an activity</option><br>
+                  <option value="running">Running</option>
+                  <option value="swimming">Swimming</option>
+                  <option value="walking">Walking</option>
                 </select><br>
 
                 <select id="domain-tag">
                   <!-- TODO: generate from /api/users/domains -->
                   <option selected value="base">Please select a goal domain</option>
+                  <option value="health">Health</option>
+                  <option value="social">Social</option>
+                  <option value="diet">Diet</option>
                 </select><br>
               
               <div class="timeblock-save">
               <!-- TODO: AJAX call to POST /api/timeblocks -->
-                <input type="submit" value="Save entry"><br>
+                <button id="timeblock-submit" type="button" value="Save entry">Submit</button><br>
                 <!-- TODO: re-render of chart with time-entry form cleared -->
                 <!-- TODO: redirect to manageView -->
                 <a href='#'>Setup and manage tracking</a>
