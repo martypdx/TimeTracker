@@ -59,7 +59,7 @@ describe('Summary data route', () => {
       .get('/api/wkly_totals?by=activity')
       .set('Authorization', token)
       .then((res) => {
-        expect(res.body['activity']).to.be.ok;
+        expect(res.body['category']).to.be.ok;
         expect(res.body['hrs']).to.be.ok;
         expect(res.body['target']).to.be.ok;
         done();
