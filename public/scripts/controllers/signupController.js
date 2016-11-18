@@ -20,7 +20,7 @@
         let token = JSON.stringify(res.body.token);
         localStorage.setItem('timetrackertoken', token);
         console.log('got token from LS: ', JSON.parse(localStorage.getItem('timetrackertoken')));
-        page('/manage', manageController.reveal);
+        page('/manage');
       })
       .catch(err => {
         alert(`${JSON.parse(err.response.text).error}. Please try again.`);

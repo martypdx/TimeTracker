@@ -17,7 +17,6 @@
         dashboardController.actualHrsData = results.body.hrs;
         dashboardController.targetHrsData = results.body.target;
         let ctx = document.getElementById('bar_chart_canvas');
-        page('/dashboard', dashboardController.renderDashboard);
         dashboardController.drawGraph(ctx);
       })
       .catch((err) => {

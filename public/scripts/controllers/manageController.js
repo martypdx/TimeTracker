@@ -106,7 +106,7 @@
       .then(res => {
         alert('Added new timeblock!');
         console.log('New timeblock: ', res.body);
-        page('/dashboard', dashboardController.renderDashboard);
+        page('/dashboard');
       })
       .catch(err => {
         alert(JSON.parse(err.response.text).error);
