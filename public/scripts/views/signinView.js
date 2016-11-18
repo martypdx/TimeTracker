@@ -22,6 +22,7 @@
 
     $('#signout').on('click', (event) => {
       manageToken.removeToken();
+      alert('Signed out!');
     });
     
   
