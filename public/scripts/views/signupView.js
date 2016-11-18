@@ -8,10 +8,8 @@
 
       signupController.postInfo(username, password);
 
-
-      console.log(username, password);
-      // TODO: Add page navigation to show manage user page.
-      // signupController.reveal();
+      $('#signup-form input[name=username]').val('');
+      $('#signup-form input[name=password]').val('');
     });
   };
 
