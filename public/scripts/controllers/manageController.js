@@ -10,61 +10,61 @@
 
   var tttoken = manageToken.getToken();
 
-  manageController.getUser = function(next) {
-    $.ajax({
-      url:'/api/users/',
-      type: 'GET', 
-      headers: {Authorization: tttoken},
-      success: data => {
-        alert('Got it! Check console for res');
-        console.log(`Get user: ${data}`);
-        //TODO: add page render to handle this
-        next(data);
-      },
-      error: (xhr, type, err) => {
-        //TODO: update error handler;
-        alert(`Error: ${err}`);
-      }
-
-    });
+  manageController.getUser = function() {
+    superagent
+      .get('/api/users')
+      .set('Authorization', tttoken)
+      .then(res => {
+        alert('Got it');
+        console.log('Get user:', res.body);
+      })
+      .catch(err => {
+        alert(JSON.parse(err.response.text).error);
+      });
   };
 
   manageController.editUser = function(obj, next) { 
-    //obj passed in should be an object with activities or domains in this format {activites: {act1: 5, act2: 10}, domains: {dom1: 5, dom2: 10}}
 
-    $.ajax({
-      url: '/api/users/',
-      type: 'PUT',
-      headers: {Authorization: tttoken},
-      data: obj,
-      success: data => {
-        //TODO: update this
-        if (data) alert(`User ${data.username}'s targets successfully updated`);
-        console.log(`PUT User: ${data}`);
-        next();
-        //TODO: add page render function to replace old tb with updated tb (which will get passed in as next)
-      }, 
-      error: (xhr, type, err)=> {
-        //TODO: write better handler;
-        alert(`Error: ${err}`);
-      }
-    });
+    console.log('edituser', tttoken);
+    //obj passed in should be an object with activities or domains in this format {activites: {act1: 5, act2: 10}, domains: {dom1: 5, dom2: 10}}
+    superagent
+      .put('/api/users')
+      .set('Authorization', tttoken)
+      .send(obj)
+      .then(res => {
+        console.log('success', res.body);
+      })
+      .catch(err => {
+        alert(JSON.parse(err.response.text).error);
+      });
   };
 
-  manageController.getAllTimeBlocks = next => {
-    $.ajax({
-      url: '/api/timeblocks/users', //TODO: check to make sure this is correct after Caitlyn moves it to timeblocks out of users.
-      type: 'GET', 
-      headers: {Authorization: tttoken}, 
-      success: data => {
-        alert('Success! Got the timeblocks, check console:');
-        console.log(`GET ALL TB: ${data}`);
+//TODO: check after adding timeblocks
+  manageController.getAllTimeBlocks = () => {
+    // $.ajax({
+    //   url: '/api/timeblocks/users', //TODO: check to make sure this is correct after Caitlyn moves it to timeblocks out of users.
+    //   type: 'GET', 
+    //   headers: {Authorization: tttoken}, 
+    //   success: data => {
+    //     alert('Success! Got the timeblocks, check console:');
+    //     console.log(`GET ALL TB: ${data}`);
 
-        //TODO: write a thing to do with the data
-        next(data);
-      }, 
-      error: (xhr, type, err) => alert(`Error: ${err}`)
-    });
+    //     //TODO: write a thing to do with the data
+    //     next(data);
+    //   }, 
+    //   error: (xhr, type, err) => alert(`Error: ${err}`)
+    // });
+
+    superagent 
+      .get('api/timeblocks/users')
+      .set('Authorization', tttoken)
+      .then(res => {
+        alert(`Got timeblock`);
+        console.log(res.body);
+      })
+      .catch(err => {
+        alert(JSON.parse(err.response.text).error);
+      });
   };
 
   manageController.getOneTimeBlock = (id, next) => {
@@ -117,21 +117,34 @@
     });
   };
 
-  manageController.addTimeBlock = (id, obj, next) => {
-    $.ajax({
-      url: `/api/timeblocks/${id}`, 
-      type: 'POST', 
-      headers: {Authorization: tttoken},
-      data: obj,
-      success: data => {
-        alert('Successfully added timeblock, check console');
-        console.log(`POST NEW TIMEBLOCK: ${data}`);
-        next(data);
-      },
-      error: (xhr, type, err) => {
-        console.log(`Error: ${err}`);
-      }
-    });
+  manageController.addTimeBlock = (obj) => {
+    // $.ajax({
+    //   url: `/api/timeblocks/${id}`, 
+    //   type: 'POST', 
+    //   headers: {Authorization: tttoken},
+    //   data: obj,
+    //   success: data => {
+    //     alert('Successfully added timeblock, check console');
+    //     console.log(`POST NEW TIMEBLOCK: ${data}`);
+    //     next(data);
+    //   },
+    //   error: (xhr, type, err) => {
+    //     console.log(`Error: ${err}`);
+    //   }
+    // });
+
+    superagent
+      .post('/api/timeblocks')
+      .set('Authorization', tttoken)
+      .send(obj)
+      .then(res => {
+        console.log('success: ', res.body);
+      })
+      .catch(err => {
+        alert(JSON.parse(err.response.text).error);
+      });
+
+
   };
 
   module.manageController = manageController;

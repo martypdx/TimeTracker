@@ -67,6 +67,7 @@ describe('Users', () => {
         expect(res.body.domains).to.include.key('triathlon');
         expect(res.body.domains).to.include.key('health');
         done();
+        console.log(res.body.activities);
 
       })
       .catch(done);

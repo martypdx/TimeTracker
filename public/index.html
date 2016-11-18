@@ -69,7 +69,7 @@
               <!-- TODO: submit event handler sends username/password to /api/auth/signin -->
               <!-- DONE: server returns token with username & user._id (or error) -->
               <!-- TODO: token saved to localStorage, included in any AJAX calls to routes -->
-                <input id="signin-submit" type="submit" value="Sign-in"><br>
+                <button id="signin-submit" type="button">Sign-in</button><br>
                 <!-- TODO: redirect to signupView -->
                 <a href='#'>Create new account</a>
               </div>
@@ -87,7 +87,7 @@
           <h1>Create an account</h1>
 
           <div id="signup-form">
-            <form name="signup" action="submit" method="post" accept-charset="UTF-8">
+            <form name="signup" action="" method="post" accept-charset="UTF-8">
               <label for="username">Username:</label><br>
                 <input type="text" name="username" placeholder="myusername" required><br>
               <label for="password">Password:</label><br>
@@ -97,9 +97,9 @@
               <!-- TODO: submit event handler sends username/password to /api/auth/signup -->
               <!-- DONE: server returns token with username & user._id (or error) -->
               <!-- TODO: token saved to localStorage, included in any AJAX calls to routes -->
-                <input id="signup-submit" type="submit" value="Create account"><br>
+                <button id="signup-submit" type="button" value="Create account">Create account</button><br>
                 <!-- TODO: redirect to manageView -->
-                <a href='#'>Setup and manage tracking</a>
+                <!--<a href='#'>Setup and manage tracking</a>-->
               </div>
             </form>
           </div>
@@ -113,18 +113,37 @@
           <h1>Enter your activities</h1>
 
             <div id="activities-form">
-              <form name="activities" action="submit" method="post" accept-charset="UTF-8">
+              <form name="activities" action="" method="" accept-charset="UTF-8">
                 <label for="activity">Activity:</label><br>
-                  <input type="text" name="activity" placeholder="myactivity" required><br>
-                <label for="description">Description:</label><br>
-                  <input type="text" name="description" placeholder="description" required><br>
+                  <select name="activity" id="activity-select">
+                    <option value="">--Select Activity</option>
+                    <option value="running">running</option> 
+                    <option value="swimming">swimming</option>
+                    <option value="biking">biking</option>
+                  </select><br>
+                <label for="target">Target:</label><br>
+                  <input type="text" name="target" placeholder="target" required><br>
               
               <div class="activity-submit">
               <!-- TODO: AJAX call to POST /api/users/activities -->
-                <input id="activity-submit" type="submit" value="Track activity"><br>
+                <button id="activity-submit" type="button">Track Activity</button><br>
                 <!-- TODO: redirect to dashboardView -->
                 <!-- TODO: toggle between activity and goal graph views -->
-                <a href='#'>Activity tracker</a>
+              </div>
+            </form>
+
+            <div id="new-activities-form">
+              <form name="new-activities" action="" method="" accept-charset="UTF-8">
+                <label for="new-activity">New Activity:</label><br>
+                  <input type="text" name="new-activity" placeholder="myactivity" required><br>
+                <label for="target">Target:</label><br>
+                  <input type="text" name="target" placeholder="target" required><br>
+              
+              <div class="activity-submit">
+              <!-- TODO: AJAX call to POST /api/users/activities -->
+                <button id="new-activity-submit" type="button" value="Track activity">Track Activity</button><br>
+                <!-- TODO: redirect to dashboardView -->
+                <!-- TODO: toggle between activity and goal graph views -->
               </div>
             </form>
           </div>
@@ -208,6 +227,7 @@
   <!--Vendor scripts-->
   <script type="text/javascript" src="vendor/scripts/page.js"></script>
   <script src="vendor/scripts/handlebars-v4.0.5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/2.3.0/superagent.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.js"></script>
   <!-- jQuery not yet implemented -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -223,6 +243,7 @@
   <script type="text/javascript" src ="scripts/controllers/signupController.js"></script>
   <script type="text/javascript" src ="scripts/controllers/signinController.js"></script>
   <script type="text/javascript" src ="scripts/controllers/dashboardController.js"></script>
+  <script type="text/javascript" src ="scripts/controllers/manageToken.js"></script>
   <script type="text/javascript" src ="scripts/controllers/manageController.js"></script>
 </body>
 </html>
