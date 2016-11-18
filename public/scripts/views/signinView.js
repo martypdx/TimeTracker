@@ -14,7 +14,17 @@
     });
   };
 
+  signinView.signOut = function() {
+
+    $('#signout').on('click', (event) => {
+      manageToken.removeToken();
+    });
+    
+  
+  }
+
   signinView.handleSubmitInput();
+  signinView.signOut();
 
   module.signinView = signinView;
 

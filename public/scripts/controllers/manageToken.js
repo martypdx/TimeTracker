@@ -11,6 +11,11 @@
     return ttToken;
   };
   
+  manageToken.removeToken = () => {
+    ttToken = '', 
+    localStorage.removeItem('timetrackertoken');
+  };
+  
   module.manageToken = manageToken;
 
 })(window);
