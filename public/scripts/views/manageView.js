@@ -65,7 +65,7 @@
     });
   };
 
-    manageView.handleNewDomain = function() {
+  manageView.handleNewDomain = function() {
  
     $('#new-domain-submit').on('click', function () {
 

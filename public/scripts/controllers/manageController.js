@@ -60,7 +60,7 @@
       .get('/api/timeblocks/users')
       .set('Authorization', tttoken)
       .then(res => {
-        alert(`Got timeblock`);
+        alert('Got timeblock');
         console.log(res.body);
       })
       .catch(err => {
@@ -87,7 +87,7 @@
       .get(`/api/timeblocks/${id}`)
       .set('Authorization', tttoken)
       .then(res => {
-        alert(`Got timeblock`);
+        alert('Got timeblock');
         console.log(res.body);
       })
       .catch(err => {
