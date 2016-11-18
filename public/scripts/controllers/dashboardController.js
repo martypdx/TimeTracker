@@ -9,13 +9,11 @@
 
     var tttoken = manageToken.getToken();
   
-    console.log('tttoken ', tttoken);
-
     superagent
-      .get('http://localhost:3000/api/wkly_totals?by=activity')
+      .get('/api/wkly_totals?by=activity')
       .set('Authorization', tttoken)
       .then((results) => {
-        dashboardController.categoryData = results.body.activity;
+        dashboardController.categoryData = results.body.category;
         dashboardController.actualHrsData = results.body.hrs;
         dashboardController.targetHrsData = results.body.target;
         let ctx = document.getElementById('bar_chart_canvas');

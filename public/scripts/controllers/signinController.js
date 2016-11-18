@@ -12,7 +12,7 @@
     let user = {username: username, password: password};
 
     superagent
-      .post('http://localhost:3000/api/auth/signin')
+      .post('/api/auth/signin')
       .send(user)
       .then(res => {
         alert('Signin successful');
@@ -25,6 +25,7 @@
       });
   };
 
+  
   module.signinController = signinController;
 
 })(window);

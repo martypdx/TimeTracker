@@ -4,47 +4,28 @@
   <meta charset="UTF-8">
   <title>Time Tracker</title>
 
-  <!-- Imported font links -->
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Raleway" rel="stylesheet"> 
 
-  <!-- CSS script links -->
+  <!-- Styles -->
   <link rel="stylesheet" href="/vendor/styles/normalize.css">
   <link rel="stylesheet" href="/styles/base.css">
   <link rel="stylesheet" href="/styles/layout.css">
   <link rel="stylesheet" href="/styles/module.css">
-
-  <!-- Timeblock template -->
-  <!-- <script id="timeblock-template" type="text/x-handlebars-template">
-    <article>
-      <ul>
-        <li id="entry-date">{{ date }}</li>
-        <li id="start-time"><a href="{{ data }}" target="_blank">{{ start }}</a></li>
-        <li id="end-time"><a href="{{ data }}" target="_blank">{{ end }}</a></li>
-        <li id="activity"><a href="{{ data }}" target="_blank">{{ activity }}</a></li>
-        <li id="why-activity"> for {{ activity }}<span id="entry-description">({{ description }})</span></li>
-        <li id="description">{{{ description }}}</li>
-        <li id="goal"><a href="{{ data }}" target="_blank">{{ goal }}</a></li>
-      </ul>
-    </article>
-  </script> -->
 </head>
 
 <body>
   <div id="container">
   <header class="main-header">
-    <div class="header-wrap">
-    
-    <!-- TODO: Add logout option (stretch: "Hello, User") -->
     <nav class="main-nav">
       <ul>
-        <li class="navtab"><a href="/api/auth/signin">Sign-in</a></li>
-        <li class="navtab"><a href="/api/auth/signup">Create Account</a></li>
-        <li class="navtab"><a href="/manage">Manage Account</a></li>
-        <li class="navtab"><a href="/dashboard">Tracker Dashboard</a></li>
+        <li class="navtab"><a href="/signin">Sign-in</a></li>
+        <li class="navtab"><a href="/signup">Create Account</a></li>
+        <li class="navtab"><a href="/manage">Manage Tracking</a></li>
+        <li class="navtab"><a href="/dashboard">Dashboard</a></li>
         <li class="navtab"><a href="/signout">Sign-out</a></li>
       </ul>
     </nav>
-    </div>
   </header>
 
   <main>
@@ -53,31 +34,24 @@
     </div>
 
     <div class="tab-container">
-      <!-- landingView if not signed in -->
-      <!-- TODO: differentiate if signed in landingView = dashboardView -->
       <section id="landing-page" class="tab-content">
           <h1>Welcome to Time Tracker!</h1>
 
           <div id="signin-form">
             <form name="signin" action="submit" method="post" accept-charset="UTF-8">
               <label for="username">Username:</label><br>
-                <input type="text" name="username" placeholder="myusername" required><br>
+              <input type="text" name="username" placeholder="myusername" required><br>
               <label for="password">Password:</label><br>
-                <input type="text" name="password" placeholder="mypassword" required><br>
+              <input type="text" name="password" placeholder="mypassword" required><br>
               
               <div class="signin-submit">
-              <!-- TODO: submit event handler sends username/password to /api/auth/signin -->
-              <!-- DONE: server returns token with username & user._id (or error) -->
-              <!-- TODO: token saved to localStorage, included in any AJAX calls to routes -->
                 <button id="signin-submit" type="button">Sign-in</button><br>
-                <!-- TODO: redirect to signupView -->
-                <a href='#'>Create new account</a>
+                <a href="<s:url action="urlTagAction.action"/>">Create new account</a>
               </div>
             </form>
           </div>
       </section>
-      
-      <!-- signupView -->
+
       <section id="signup-page" class="tab-content">
         <div id="about">
           <h1>About Time Tracker</h1>
@@ -88,160 +62,137 @@
           <h1>Create an account</h1>
 
           <div id="signup-form">
-            <form name="signup" action="" method="post" accept-charset="UTF-8">
+            <form name="signup" action="submit" method="post" accept-charset="UTF-8">
               <label for="username">Username:</label><br>
-                <input type="text" name="username" placeholder="myusername" required><br>
+              <input type="text" name="username" placeholder="myusername" required><br>
               <label for="password">Password:</label><br>
-                <input type="text" name="password" placeholder="mypassword" required><br>
+              <input type="text" name="password" placeholder="mypassword" required><br>
               
               <div class="signup-submit">
-              <!-- TODO: submit event handler sends username/password to /api/auth/signup -->
-              <!-- DONE: server returns token with username & user._id (or error) -->
-              <!-- TODO: token saved to localStorage, included in any AJAX calls to routes -->
-                <button id="signup-submit" type="button" value="Create account">Create account</button><br>
-                <!-- TODO: redirect to manageView -->
-                <!--<a href='#'>Setup and manage tracking</a>-->
+                <button id="signup-submit" type="button">Create account</button><br>
+                <a href="<s:url action="urlTagAction.action"/>">Manage tracking</a>
               </div>
             </form>
           </div>
         </div>
       </section>
 
-      <!-- manageView -->
-      <!-- TODO: add delete entry functionality -->
       <section id="manage-page" class="tab-content">
         <div id="activities">
-          <h1>Enter your activities</h1>
+          <h1>Track your activities</h1>
 
           <div id="activities-form">
-            <form name="activities" action="" method="" accept-charset="UTF-8">
+            <form name="activities" action="submit" method="post" accept-charset="UTF-8">
               <label for="activity">Activity:</label><br>
                 <select name="activity" id="activity-select">
                   <option value="">--Select Activity</option>
-                  <option value="running">running</option> 
-                  <option value="swimming">swimming</option>
-                  <option value="biking">biking</option>
+                  <option value="running">Running</option> 
+                  <option value="swimming">Swimming</option>
+                  <option value="biking">Biking</option>
                 </select><br>
               <label for="target">Target:</label><br>
                 <input type="text" name="target" placeholder="target" required><br>
             
               <div class="activity-submit">
-                <!-- TODO: AJAX call to POST /api/users/activities -->
-                <button id="activity-submit" type="button">Track Activity</button><br>
-                <!-- TODO: redirect to dashboardView -->
-                <!-- TODO: toggle between activity and goal graph views -->
+                <button id="activity-submit" type="button">Save</button><br>
+                <a href="<s:url action="urlTagAction.action"/>">Manage tracking</a>
               </div>
             </form>
           </div>
 
           <div id="new-activities-form">
-            <form name="new-activities" action="" method="" accept-charset="UTF-8">
+            <form name="new-activities" action="submit" method="post" accept-charset="UTF-8">
               <label for="new-activity">New Activity:</label><br>
-                <input type="text" name="new-activity" placeholder="myactivity" required><br>
+              <input type="text" name="new-activity" placeholder="myactivity" required><br>
               <label for="target">Target:</label><br>
-                <input type="text" name="target" placeholder="target" required><br>
+              <input type="text" name="target" placeholder="target" required><br>
             
               <div class="activity-submit">
-                <!-- TODO: AJAX call to POST /api/users/activities -->
-                <button id="new-activity-submit" type="button" value="Track activity">Track Activity</button><br>
-                <!-- TODO: redirect to dashboardView -->
-                <!-- TODO: toggle between activity and goal graph views -->
+                <button id="new-activity-submit" type="button">Save</button><br>
+                <a href="<s:url action="urlTagAction.action"/>">Mange tracking</a>
               </div>
             </form>
           </div>
         </div>
 
         <div id="goals">
-          <h1>Enter your bigger-picture goal domains</h1>
-          <form id="domains-form" action="" method="" accept-charset="UTF-8">
+          <h1>Track your bigger-picture goals by domain</h1>
+          <form id="domains-form" action="submit" method="post" accept-charset="UTF-8">
               <label for="domain">Domain:</label><br>
-                <select name="domain" id="domain-select">
-                  <option value="">--Select Domain</option>
-                  <option value="health">health</option> 
-                  <option value="professional">professional</option>
-                  <option value="community">community</option>
-                </select><br>
+              <select name="domain" id="domain-select">
+                <option value="">--Select Domain</option>
+                <option value="health">Health</option> 
+                <option value="professional">Professional</option>
+                <option value="community">Community</option>
+              </select><br>
               <label for="target">Target:</label><br>
-                <input type="text" name="target" placeholder="target" required><br>
+              <input type="text" name="target" placeholder="target" required><br>
             
             <div class="domain-submit">
-            <!-- TODO: AJAX call to POST /api/users/domain -->
-              <button id="domain-submit" type="button">Track Domain</button><br>
-              <!-- TODO: redirect to dashboardView -->
-              <!-- TODO: toggle between activity and goal graph views -->
+              <button id="domain-submit" type="button">Save</button><br>
             </div>
           </form>
+
           <div id="new-domains-form">
             <form name="new-domains" action="" method="" accept-charset="UTF-8">
               <label for="new-domain">New Domain:</label><br>
-                <input type="text" name="new-domain" placeholder="mydomain" required><br>
+              <input type="text" name="new-domain" placeholder="mydomain" required><br>
               <label for="target">Target:</label><br>
-                <input type="text" name="target" placeholder="target" required><br>
+              <input type="text" name="target" placeholder="target" required><br>
             
-            <div class="domain-submit">
-            <!-- TODO: AJAX call to POST /api/users/domains -->
-              <button id="new-domain-submit" type="button" value="Track domain">Track Domain</button><br>
-                <!-- TODO: redirect to dashboardView -->
-                <!-- TODO: toggle between domain and goal graph views -->
+              <div class="new-domain-submit">
+                <button id="new-domain-submit" type="button" value="Track domain">Save</button><br>
+                <a href="<s:url action="urlTagAction.action"/>">Manage tracking</a>
               </div>
             </form>
           </div>
         </div>
       </section>
 
-      <!-- dashboardView, landingView if already signed in -->
       <section id="dashboard-page" class="tab-content">
         <div id="time-entry">
           <h1>Log the time you'd like to track</h1>
-            <h2>Tag your entry by activity and/or domain (optional)</h2>
 
-            <div id="timeblock-form">
-              <form name="timeblock" action="" method="" accept-charset="UTF-8">
-                <label for="startTime">Start:</label><br>
-                  <input type="datetime-local" name="startTime" placeholder="start time" required><br>
-                <label for="endTime">End:</label><br>
-                  <input type="datetime-local" name="endTime" placeholder="end time"><br>
-                <label for="description">Description:</label><br>
-                  <input type="text" name="description" placeholder="description" required><br>
-                
-                <!-- Dropdown for activity/domain tags -->
-                <select id="activity-tag">
-                  <!-- TODO: generate from /api/users/activities -->
-                  <option selected value="base">Please select an activity</option><br>
-                  <option value="running">Running</option>
-                  <option value="swimming">Swimming</option>
-                  <option value="walking">Walking</option>
-                </select><br>
+          <div id="timeblock-form">
+            <form name="timeblock" action="" method="" accept-charset="UTF-8">
+              <label for="startTime">Start:</label><br>
+              <input type="datetime-local" name="startTime" placeholder="start time" required><br>
+              <label for="endTime">End:</label><br>
+              <input type="datetime-local" name="endTime" placeholder="end time"><br>
+              <label for="description">Description:</label><br>
+              <input type="text" name="description" placeholder="description" required><br>
+              
+            <h2>Tag your entry by activity/domain</h2>
+              <select id="activity-tag">
+                <option value="">--Select Activity</option>
+                <option value="running">Running</option>
+                <option value="swimming">Swimming</option>
+                <option value="walking">Walking</option>
+              </select><br>
 
-                <select id="domain-tag">
-                  <!-- TODO: generate from /api/users/domains -->
-                  <option selected value="base">Please select a goal domain</option>
-                  <option value="health">Health</option>
-                  <option value="social">Social</option>
-                  <option value="diet">Diet</option>
-                </select><br>
+              <select id="domain-tag">
+                <option value="">--Select Domain</option>
+                <option value="health">Health</option>
+                <option value="social">Social</option>
+                <option value="diet">Diet</option>
+              </select><br>
               
               <div class="timeblock-save">
-              <!-- TODO: AJAX call to POST /api/timeblocks -->
-                <button id="timeblock-submit" type="button" value="Save entry">Submit</button><br>
-                <!-- TODO: re-render of chart with time-entry form cleared -->
-                <!-- TODO: redirect to manageView -->
-                <a href='#'>Setup and manage tracking</a>
+                <button id="timeblock-submit" type="button">Save</button><br>
+                <a href="<s:url action="urlTagAction.action"/>">Manage tracking</a>
               </div>
             </form>
           </div>
         </div>
       
         <div id="charts-container">
-          <!-- Pie describes how all time spent for all user activities/domains -->
-          <div class="pie-chart-container">
-            <!-- Mark to write logic for chart -->
+          <!-- TODO: Pie describes how all time spent for all user activities/domains -->
+          <!--<div class="pie-chart-container">
             <canvas id="chart_canvas" width="300" height="300"></canvas>
-          </div>
+          </div>-->
 
           <!-- Bar describes specific time budget/target specific user activity/domain -->
           <div class="bar-chart-container">
-            <!-- Mark to write logic for chart -->
             <canvas id="bar_chart_canvas" width="300" height="300"></canvas>
           </div>
         </div>
@@ -249,26 +200,24 @@
     </div>
   </main>
 
-  <!--Scripts-->
-  <!--Vendor scripts-->
+  <!-- Scripts -->
+  <!-- Vendor -->
   <script type="text/javascript" src="/vendor/scripts/page.js"></script>
   <script src="/vendor/scripts/handlebars-v4.0.5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/2.3.0/superagent.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.js"></script>
-  <!-- jQuery not yet implemented -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
-  <!--View scripts-->
-  <script type="text/javascript" src="/scripts/views/signupView.js"></script>
+  <!-- Views -->
   <script type="text/javascript" src="/scripts/views/signinView.js"></script>
-  <!--<script type="text/javascript" src="/scripts/views/dashboardView.js"></script>-->
+  <script type="text/javascript" src="/scripts/views/signupView.js"></script>
+  <script type="text/javascript" src="/scripts/views/dashboardView.js"></script>
   <script type="text/javascript" src="/scripts/views/manageView.js"></script>
  
-  <!--Controller scripts-->
-  <!-- DONE: need to make sure appropriate controllers put here -->
+  <!-- Controllers -->
   <script type="text/javascript" src ="/scripts/controllers/manageToken.js"></script>
-  <script type="text/javascript" src ="/scripts/controllers/signupController.js"></script>
   <script type="text/javascript" src ="/scripts/controllers/signinController.js"></script>
+  <script type="text/javascript" src ="/scripts/controllers/signupController.js"></script>
   <script type="text/javascript" src ="/scripts/controllers/dashboardController.js"></script>
   <script type="text/javascript" src ="/scripts/controllers/manageController.js"></script>
   <script type="text/javascript" src ="/scripts/controllers/routes.js"></script>
