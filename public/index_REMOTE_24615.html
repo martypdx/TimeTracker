@@ -153,36 +153,19 @@
 
         <div id="goals">
           <h1>Enter your bigger-picture goal domains</h1>
-          <form id="domains-form" action="" method="" accept-charset="UTF-8">
+
+          <div id="domains-form">
+            <form name="domains" action="submit" method="post" accept-charset="UTF-8">
               <label for="domain">Domain:</label><br>
-                <select name="domain" id="domain-select">
-                  <option value="">--Select Domain</option>
-                  <option value="health">health</option> 
-                  <option value="professional">professional</option>
-                  <option value="community">community</option>
-                </select><br>
-              <label for="target">Target:</label><br>
-                <input type="text" name="target" placeholder="target" required><br>
+                <input type="text" name="domain" placeholder="goaldomain" required><br>
+              <label for="description">Description:</label><br>
+                <input type="text" name="description" placeholder="description" required><br>
             
-            <div class="domain-submit">
-            <!-- TODO: AJAX call to POST /api/users/domain -->
-              <button id="domain-submit" type="button">Track Domain</button><br>
-              <!-- TODO: redirect to dashboardView -->
-              <!-- TODO: toggle between activity and goal graph views -->
-            </div>
-          </form>
-          <div id="new-domains-form">
-            <form name="new-domains" action="" method="" accept-charset="UTF-8">
-              <label for="new-domain">New Domain:</label><br>
-                <input type="text" name="new-domain" placeholder="mydomain" required><br>
-              <label for="target">Target:</label><br>
-                <input type="text" name="target" placeholder="target" required><br>
-            
-            <div class="domain-submit">
-            <!-- TODO: AJAX call to POST /api/users/domains -->
-              <button id="new-domain-submit" type="button" value="Track domain">Track Domain</button><br>
+              <div class="domain-submit">
+                <!-- TODO: AJAX call to POST /api/users/domains -->
+                <input id="domain-submit" type="submit" value="Track goal domain"><br>
                 <!-- TODO: redirect to dashboardView -->
-                <!-- TODO: toggle between domain and goal graph views -->
+                <a href='#'>Goal domain tracker</a>
               </div>
             </form>
           </div>
@@ -196,11 +179,11 @@
             <h2>Tag your entry by activity and/or domain (optional)</h2>
 
             <div id="timeblock-form">
-              <form name="timeblock" action="" method="" accept-charset="UTF-8">
+              <form name="timeblock" action="submit" method="post" accept-charset="UTF-8">
                 <label for="startTime">Start:</label><br>
-                  <input type="datetime-local" name="startTime" placeholder="start time" required><br>
+                  <input type="text" name="startTime" placeholder="start time" required><br>
                 <label for="endTime">End:</label><br>
-                  <input type="datetime-local" name="endTime" placeholder="end time"><br>
+                  <input type="text" name="endTime" placeholder="end time"><br>
                 <label for="description">Description:</label><br>
                   <input type="text" name="description" placeholder="description" required><br>
                 
@@ -208,22 +191,16 @@
                 <select id="activity-tag">
                   <!-- TODO: generate from /api/users/activities -->
                   <option selected value="base">Please select an activity</option><br>
-                  <option value="running">Running</option>
-                  <option value="swimming">Swimming</option>
-                  <option value="walking">Walking</option>
                 </select><br>
 
                 <select id="domain-tag">
                   <!-- TODO: generate from /api/users/domains -->
                   <option selected value="base">Please select a goal domain</option>
-                  <option value="health">Health</option>
-                  <option value="social">Social</option>
-                  <option value="diet">Diet</option>
                 </select><br>
               
               <div class="timeblock-save">
               <!-- TODO: AJAX call to POST /api/timeblocks -->
-                <button id="timeblock-submit" type="button" value="Save entry">Submit</button><br>
+                <input type="submit" value="Save entry"><br>
                 <!-- TODO: re-render of chart with time-entry form cleared -->
                 <!-- TODO: redirect to manageView -->
                 <a href='#'>Setup and manage tracking</a>
