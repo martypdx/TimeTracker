@@ -54,33 +54,44 @@ describe('Summary data route', () => {
       .catch(done);
   });
   
-  it ('/api/wkly_totals?by=activity returns three arrays', (done) => {
+  it ('/api/wkly_totals?by=activity returns three data sets', (done) => {
     request
       .get('/api/wkly_totals?by=activity')
       .set('Authorization', token)
       .then((res) => {
-        expect(res.body['category']).to.be.ok;
-        expect(res.body['hrs']).to.be.ok;
-        expect(res.body['target']).to.be.ok;
+        expect(res.body.category).to.be.ok;
+        expect(res.body.hrs).to.be.ok;
+        expect(res.body.target).to.be.ok;
         done();
       })
       .catch(done);
   });
 
-  it.skip ('/api/wkly_totals?by=activity first returned array contains strings', (done) => {
+  it ('/api/wkly_totals?by=activity returned datasets should be arrays', (done) => {
     request
       .get('/api/wkly_totals?by_activity')
       .set('Authorization', token)
       .then((res) => {
-        console.log(typeof res.body['category']);
-        expect(typeof res.body['category']).to.equal('Array');
+        expect(res.body.category instanceof Array).to.be.ok;
+        expect(res.body.hrs instanceof Array).to.be.ok;
+        expect(res.body.target instanceof Array).to.be.ok;
         done();
       })
       .catch(done);
   });
 
-  it.skip ('/api/wkly_totals?by=activity second returned array contains numbers', () => {
-
+  it ('/api/wkly_totals?by=activity returned arrays are all the same length', (done) => {
+    request
+      .get('/api/wkly_totals?by_activity')
+      .set('Authorization', token)
+      .then((res) => {
+        const expected_length = res.body.category.length;
+        expect(res.body.hrs.length).to.equal(expected_length);
+        expect(res.body.target.length).to.equal(expected_length);
+        done();
+      })
+      .catch(done);
+    
   });
 
 });

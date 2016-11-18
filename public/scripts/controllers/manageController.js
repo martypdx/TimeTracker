@@ -15,8 +15,8 @@
       .get('/api/users')
       .set('Authorization', tttoken)
       .then(res => {
-        alert('Got it');
-        console.log('Get user:', res.body);
+        alert('Got user!');
+        console.log('User:', res.body);
       })
       .catch(err => {
         alert(JSON.parse(err.response.text).error);
@@ -32,36 +32,22 @@
       .set('Authorization', tttoken)
       .send(obj)
       .then(res => {
-        console.log('success', res.body);
+        alert('Successfully updated user!')
+        console.log('Updated User:', res.body);
       })
       .catch(err => {
         alert(JSON.parse(err.response.text).error);
       });
   };
 
-//TODO: check after adding timeblocks
   manageController.getAllTimeBlocks = () => {
-    // $.ajax({
-    //   url: '/api/timeblocks/users', //TODO: check to make sure this is correct after Caitlyn moves it to timeblocks out of users.
-    //   type: 'GET', 
-    //   headers: {Authorization: tttoken}, 
-    //   success: data => {
-    //     alert('Success! Got the timeblocks, check console:');
-    //     console.log(`GET ALL TB: ${data}`);
-
-    //     //TODO: write a thing to do with the data
-    //     next(data);
-    //   }, 
-    //   error: (xhr, type, err) => alert(`Error: ${err}`)
-    // });
-
 
     superagent 
       .get('/api/timeblocks/users')
       .set('Authorization', tttoken)
       .then(res => {
-        alert('Got timeblock');
-        console.log(res.body);
+        alert('Got all timeblocks');
+        console.log('Timeblocks', res.body);
       })
       .catch(err => {
         alert(JSON.parse(err.response.text).error);
@@ -69,59 +55,33 @@
   };
 
   manageController.getOneTimeBlock = (id, next) => {
-    // $.ajax({
-    //   url: `/api/timeblocks/${id}`, 
-    //   type: 'GET', 
-    //   headers: {Authorization: tttoken},
-    //   success: data => {
-    //     //TODO: write better handler
-    //     alert('Got data, check console');
-    //     console.log(`GET ONE TIMEBLOCK: ${data}`);
-    //     next(data);
-    //   }, 
-    //   error: (xhr, type, err) => {
-    //     alert(`Error: ${err}`);
-    //   }
-    // });
+    
     superagent
       .get(`/api/timeblocks/${id}`)
       .set('Authorization', tttoken)
       .then(res => {
         alert('Got timeblock');
-        console.log(res.body);
+        console.log('Timeblock', res.body);
       })
       .catch(err => {
         alert(JSON.parse(err.response.text).error);
       });
   };
 
-  manageController.editTimeBlock = (id, obj, next) => {
+  manageController.editTimeBlock = (id, obj) => {
 
     superagent
-      .put()
-      .set('Authoriation', tttoken)
+      .put(`/api/timeblocks/${id}`)
+      .set('Authorization', tttoken)
       .send(obj)
       .then(res => {
         alert('Successfully updated timeblock');
-        console.log(res.body);
+        console.log('Updated timeblock:', res.body);
       })
       .catch(err => {
         alert(JSON.parse(err.response.text).error);
       });
-    // $.ajax({
-    //   url: `/api/timeblocks/${id}`, 
-    //   type: 'PUT', 
-    //   headers: {Authorization: tttoken},
-    //   data: obj,
-    //   success: data => {
-    //     alert('Successfully updated timeblock, check console');
-    //     console.log(`PUT TIMEBLOCK: ${data}`);
-    //     next(data);
-    //   },
-    //   error: (xhr, type, err) => {
-    //     console.log(`Error: ${err}`);
-    //   }
-    // });
+
   };
 
   manageController.deleteTimeBlock = (id, next) => {
@@ -131,46 +91,21 @@
       .set('Authorization', tttoken)
       .then(res => {
         alert('Successfully deleted timeblock');
-        console.log(res.body);
+        console.log('Deleted timeblock', res.body);
       })
       .catch( err => console.log(err.response.text).error);
-    // $.ajax({
-    //   url: `/api/timeblocks/${id}`, 
-    //   type: 'DELETE', 
-    //   headers: {Authorization: tttoken},
-    //   success: data => {
-    //     alert('Successfully deleted timeblock, check console');
-    //     console.log(`DELETE TIMEBLOCK: ${data}`);
-    //     next(data);
-    //   },
-    //   error: (xhr, type, err) => {
-    //     console.log(`Error: ${err}`);
-    //   }
-    // });
+
   };
 
   manageController.addTimeBlock = (obj) => {
-    // $.ajax({
-    //   url: `/api/timeblocks/${id}`, 
-    //   type: 'POST', 
-    //   headers: {Authorization: tttoken},
-    //   data: obj,
-    //   success: data => {
-    //     alert('Successfully added timeblock, check console');
-    //     console.log(`POST NEW TIMEBLOCK: ${data}`);
-    //     next(data);
-    //   },
-    //   error: (xhr, type, err) => {
-    //     console.log(`Error: ${err}`);
-    //   }
-    // });
 
     superagent
       .post('/api/timeblocks')
       .set('Authorization', tttoken)
       .send(obj)
       .then(res => {
-        console.log('success: ', res.body);
+        alert('Added new timeblock!');
+        console.log('New timeblock: ', res.body);
       })
       .catch(err => {
         alert(JSON.parse(err.response.text).error);
