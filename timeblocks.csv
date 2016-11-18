@@ -1,0 +1,6 @@
+startTime,endTime,description,userId,activity,domain
+2016-11-12T22:30,2016-11-13T06:00,Sleep,1,sleep,health
+2016-11-13T06:00,2016-11-13T08:00,Read,1,reading,education
+2016-11-13T08:00,2016-11-13T08:30,Breakfast,1,meals,
+2016-11-13T08:30,2016-11-13T09:00,Shower and shave,1,personal care,
+2016-11-13T09:00,2016-11-13T09:30,Sudoku,1,computer games,entertainment

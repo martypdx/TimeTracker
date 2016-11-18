@@ -33,7 +33,7 @@ describe('Users', () => {
       .then(res => {
         expect(token = res.body.token).to.be.ok;
         return request
-          .put('/api/users/mine')
+          .put('/api/users/')
           .set('Authorization', token)
           .send(testUserA)
           .then(() => {
@@ -47,7 +47,7 @@ describe('Users', () => {
 //we're going to update to only send activities and domains (not username and password)  
   it('gets a user', done => {
     request
-      .get('/api/users/mine')
+      .get('/api/users/')
       .set('Authorization', token)
       .then(res => {
         expect(res.body.activities).to.eql(testUserA.activities);
@@ -58,7 +58,7 @@ describe('Users', () => {
 
   it('updates a user', done => {
     request
-      .put('/api/users/mine')
+      .put('/api/users/')
       .set('Authorization', token)
       .send({activities: {swimming: 2}, domains: {triathlon: 15}})
       .then( res => {
@@ -67,6 +67,7 @@ describe('Users', () => {
         expect(res.body.domains).to.include.key('triathlon');
         expect(res.body.domains).to.include.key('health');
         done();
+        console.log(res.body.activities);
 
       })
       .catch(done);

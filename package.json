@@ -10,7 +10,7 @@
     "build": "npm install",
     "dev": "npm install --save-dev",
     "watch": "npm run test -- -w",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
