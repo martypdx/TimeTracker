@@ -48,6 +48,39 @@
     });
   };
 
+  manageView.handleDomain = function () {
+    $('#domain-submit').on('click', function (){
+
+      console.log('obj', obj);
+      var domain = $('#domains-form select[name=domain]').val();
+      var target = $('#domains-form input[name=target]').val(); 
+
+      var obj = {};
+      obj[domain] = target;
+      var domains = {domains: obj};
+
+
+      manageController.editUser(domains);
+      // manageController.reveal();
+    });
+  };
+
+    manageView.handleNewDomain = function() {
+ 
+    $('#new-domain-submit').on('click', function () {
+
+      console.log('obj', obj);
+      var newdomain = $('#new-domains-form input[name=new-domain]').val();
+      var target = $('#new-domains-form input[name=target]').val();
+
+      var obj = {};
+      obj[newdomain] = target;
+      var domains = {domains: obj};
+
+      manageController.editUser(domains);
+    });
+  };
+
 
 
     // $('#domain-submit').on('click', function (){
@@ -62,6 +95,8 @@
 
   manageView.handleActivity();
   manageView.handleNewActivity();
+  manageView.handleDomain();
+  manageView.handleNewDomain();
 
   module.manageView = manageView;
 

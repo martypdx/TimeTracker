@@ -151,19 +151,36 @@
 
         <div id="goals">
           <h1>Enter your bigger-picture goal domains</h1>
-
-            <div id="domains-form">
-              <form name="domains" action="submit" method="post" accept-charset="UTF-8">
+            <form id="domains-form" action="" method="" accept-charset="UTF-8">
                 <label for="domain">Domain:</label><br>
-                  <input type="text" name="domain" placeholder="goaldomain" required><br>
-                <label for="description">Description:</label><br>
-                  <input type="text" name="description" placeholder="description" required><br>
+                  <select name="domain" id="domain-select">
+                    <option value="">--Select Domain</option>
+                    <option value="health">health</option> 
+                    <option value="professional">professional</option>
+                    <option value="community">community</option>
+                  </select><br>
+                <label for="target">Target:</label><br>
+                  <input type="text" name="target" placeholder="target" required><br>
+              
+              <div class="domain-submit">
+              <!-- TODO: AJAX call to POST /api/users/domain -->
+                <button id="domain-submit" type="button">Track Domain</button><br>
+                <!-- TODO: redirect to dashboardView -->
+                <!-- TODO: toggle between activity and goal graph views -->
+              </div>
+            </form>
+            <div id="new-domains-form">
+              <form name="new-domains" action="" method="" accept-charset="UTF-8">
+                <label for="new-domain">New Domain:</label><br>
+                  <input type="text" name="new-domain" placeholder="mydomain" required><br>
+                <label for="target">Target:</label><br>
+                  <input type="text" name="target" placeholder="target" required><br>
               
               <div class="domain-submit">
               <!-- TODO: AJAX call to POST /api/users/domains -->
-                <input id="domain-submit" type="submit" value="Track goal domain"><br>
+                <button id="new-domain-submit" type="button" value="Track domain">Track Domain</button><br>
                 <!-- TODO: redirect to dashboardView -->
-                <a href='#'>Goal domain tracker</a>
+                <!-- TODO: toggle between domain and goal graph views -->
               </div>
             </form>
           </div>
