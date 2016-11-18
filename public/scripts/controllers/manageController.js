@@ -96,36 +96,57 @@
   };
 
   manageController.editTimeBlock = (id, obj, next) => {
-    $.ajax({
-      url: `/api/timeblocks/${id}`, 
-      type: 'PUT', 
-      headers: {Authorization: tttoken},
-      data: obj,
-      success: data => {
-        alert('Successfully updated timeblock, check console');
-        console.log(`PUT TIMEBLOCK: ${data}`);
-        next(data);
-      },
-      error: (xhr, type, err) => {
-        console.log(`Error: ${err}`);
-      }
-    });
+
+    superagent
+      .put()
+      .set('Authoriation', tttoken)
+      .send(obj)
+      .then(res => {
+        alert('Successfully updated timeblock');
+        console.log(res.body);
+      })
+      .catch(err => {
+        alert(JSON.parse(err.response.text).error);
+      });
+    // $.ajax({
+    //   url: `/api/timeblocks/${id}`, 
+    //   type: 'PUT', 
+    //   headers: {Authorization: tttoken},
+    //   data: obj,
+    //   success: data => {
+    //     alert('Successfully updated timeblock, check console');
+    //     console.log(`PUT TIMEBLOCK: ${data}`);
+    //     next(data);
+    //   },
+    //   error: (xhr, type, err) => {
+    //     console.log(`Error: ${err}`);
+    //   }
+    // });
   };
 
   manageController.deleteTimeBlock = (id, next) => {
-    $.ajax({
-      url: `/api/timeblocks/${id}`, 
-      type: 'DELETE', 
-      headers: {Authorization: tttoken},
-      success: data => {
-        alert('Successfully deleted timeblock, check console');
-        console.log(`DELETE TIMEBLOCK: ${data}`);
-        next(data);
-      },
-      error: (xhr, type, err) => {
-        console.log(`Error: ${err}`);
-      }
-    });
+
+    superagent
+      .del(`/api/timeblocks/${id}`)
+      .set('Authorization', tttoken)
+      .then(res => {
+        alert('Successfully deleted timeblock');
+        console.log(res.body);
+      })
+      .catch( err => console.log(err.response.text).error);
+    // $.ajax({
+    //   url: `/api/timeblocks/${id}`, 
+    //   type: 'DELETE', 
+    //   headers: {Authorization: tttoken},
+    //   success: data => {
+    //     alert('Successfully deleted timeblock, check console');
+    //     console.log(`DELETE TIMEBLOCK: ${data}`);
+    //     next(data);
+    //   },
+    //   error: (xhr, type, err) => {
+    //     console.log(`Error: ${err}`);
+    //   }
+    // });
   };
 
   manageController.addTimeBlock = (obj) => {
