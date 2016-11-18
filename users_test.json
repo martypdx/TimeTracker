@@ -1,0 +1,2 @@
+{"_id":{"$oid":"582de4c46a6d934f8e0498a0"},"password":"$2a$08$hlJvr4BhQqIqAfP.FNsSXujBZPOYooLDxuadMzyrT/XAZyhr4YgGe","username":"testUser","__v":0,"activities":{"eating":15.0,"sleep":56.0,"exercise":5.0,"coding":40.0,"meeting":10.0,"networking":0.0,"commuting":0.0,"tv":5.0,"reading":10.0},"domains":{"work":20,"health":20}}
+{"_id":{"$oid":"582e02ffa7d18652d15fd2b8"},"password":"$2a$08$8Gsci7dBgHmZF0W9B/2NGuIb3X/eIGrgqUvnsCcfsN6pnQk7XorBu","username":"mark","__v":0,"activities":{"sleep":56.0,"coding":40.0}}
