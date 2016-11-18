@@ -32,17 +32,14 @@
     let wkly_summary_chart = new Chart(ctx, { // eslint-disable-line no-unused-vars, no-undef
       type: 'bar',
       data: {
-        // labels: dashboardController.categoryData,
-        labels: [ 0, 1, 2, 3 ],
+        labels: dashboardController.categoryData,
         datasets: [{
           label: 'Actual Hours',
-          // data: dashboardController.actualHrsData,
-          data: [ 5, 6, 7, 8 ],
+          data: dashboardController.actualHrsData,
           backgroundColor: '#382765'
         }, {
           label: 'Target Hours',
-          // data: dashboardController.targetHrsData,
-          data: [ 6, 5, 4, 5 ],
+          data: dashboardController.targetHrsData,
           backgroundColor: '#7BC225'
         }]
       }
