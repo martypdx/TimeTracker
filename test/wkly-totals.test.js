@@ -67,8 +67,16 @@ describe('Summary data route', () => {
       .catch(done);
   });
 
-  it.skip ('/api/wkly_totals?by=activity first returned array contains strings', () => {
-
+  it ('/api/wkly_totals?by=activity first returned array contains strings', (done) => {
+    request
+      .get('/api/wkly_totals?by_activity')
+      .set('Authorization', token)
+      .then((res) => {
+        console.log(typeof res.body['category']);
+        expect(typeof res.body['category']).to.equal('Array');
+        done();
+      })
+      .catch(done);
   });
 
   it.skip ('/api/wkly_totals?by=activity second returned array contains numbers', () => {
