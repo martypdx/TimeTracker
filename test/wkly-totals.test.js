@@ -67,7 +67,7 @@ describe('Summary data route', () => {
       .catch(done);
   });
 
-  it ('/api/wkly_totals?by=activity first returned array contains strings', (done) => {
+  it.skip ('/api/wkly_totals?by=activity first returned array contains strings', (done) => {
     request
       .get('/api/wkly_totals?by_activity')
       .set('Authorization', token)
