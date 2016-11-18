@@ -46,7 +46,7 @@
               
               <div class="signin-submit">
                 <button id="signin-submit" type="button">Sign-in</button><br>
-                <a href="<s:url action="urlTagAction.action"/>">Create new account</a>
+                <a href="/signup"/>Create new account</a>
               </div>
             </form>
           </div>
@@ -70,7 +70,7 @@
               
               <div class="signup-submit">
                 <button id="signup-submit" type="button">Create account</button><br>
-                <a href="<s:url action="urlTagAction.action"/>">Manage tracking</a>
+                <a href="/manage">Manage tracking</a>
               </div>
             </form>
           </div>
@@ -84,18 +84,18 @@
           <div id="activities-form">
             <form name="activities" action="submit" method="post" accept-charset="UTF-8">
               <label for="activity">Activity:</label><br>
-                <select name="activity" id="activity-select">
-                  <option value="">--Select Activity</option>
-                  <option value="running">Running</option> 
-                  <option value="swimming">Swimming</option>
-                  <option value="biking">Biking</option>
-                </select><br>
+              <select name="activity" id="activity-select">
+                <option value="">--Select Activity</option>
+                <option value="running">Running</option> 
+                <option value="swimming">Swimming</option>
+                <option value="biking">Biking</option>
+              </select><br>
               <label for="target">Target:</label><br>
-                <input type="text" name="target" placeholder="target" required><br>
+              <input type="number" name="target" placeholder="target" required><br>
             
               <div class="activity-submit">
                 <button id="activity-submit" type="button">Save</button><br>
-                <a href="<s:url action="urlTagAction.action"/>">Manage tracking</a>
+                <a href="/dashboard">Dashboard</a>
               </div>
             </form>
           </div>
@@ -105,11 +105,11 @@
               <label for="new-activity">New Activity:</label><br>
               <input type="text" name="new-activity" placeholder="myactivity" required><br>
               <label for="target">Target:</label><br>
-              <input type="text" name="target" placeholder="target" required><br>
+              <input type="number" name="target" placeholder="target" required><br>
             
               <div class="activity-submit">
                 <button id="new-activity-submit" type="button">Save</button><br>
-                <a href="<s:url action="urlTagAction.action"/>">Mange tracking</a>
+                <a href="/dashboard">Dashboard</a>
               </div>
             </form>
           </div>
@@ -121,28 +121,29 @@
               <label for="domain">Domain:</label><br>
               <select name="domain" id="domain-select">
                 <option value="">--Select Domain</option>
-                <option value="health">Health</option> 
-                <option value="professional">Professional</option>
-                <option value="community">Community</option>
+                <option value="Health">Health</option> 
+                <option value="Professional">Professional</option>
+                <option value="Community">Community</option>
               </select><br>
               <label for="target">Target:</label><br>
-              <input type="text" name="target" placeholder="target" required><br>
+              <input type="number" name="target" placeholder="target" required><br>
             
             <div class="domain-submit">
               <button id="domain-submit" type="button">Save</button><br>
+              <a href="/dashboard">Dashboard</a>
             </div>
           </form>
 
           <div id="new-domains-form">
-            <form name="new-domains" action="" method="" accept-charset="UTF-8">
+            <form name="new-domains" action="submit" method="post" accept-charset="UTF-8">
               <label for="new-domain">New Domain:</label><br>
               <input type="text" name="new-domain" placeholder="mydomain" required><br>
               <label for="target">Target:</label><br>
-              <input type="text" name="target" placeholder="target" required><br>
+              <input type="number" name="target" placeholder="target" required><br>
             
               <div class="new-domain-submit">
-                <button id="new-domain-submit" type="button" value="Track domain">Save</button><br>
-                <a href="<s:url action="urlTagAction.action"/>">Manage tracking</a>
+                <button id="new-domain-submit" type="button">Save</button><br>
+                <a href="/dashboard">Dashboard</a>
               </div>
             </form>
           </div>
@@ -154,7 +155,7 @@
           <h1>Log the time you'd like to track</h1>
 
           <div id="timeblock-form">
-            <form name="timeblock" action="" method="" accept-charset="UTF-8">
+            <form name="timeblock" action="submit" method="post" accept-charset="UTF-8">
               <label for="startTime">Start:</label><br>
               <input type="datetime-local" name="startTime" placeholder="start time" required><br>
               <label for="endTime">End:</label><br>
@@ -179,7 +180,7 @@
               
               <div class="timeblock-save">
                 <button id="timeblock-submit" type="button">Save</button><br>
-                <a href="<s:url action="urlTagAction.action"/>">Manage tracking</a>
+                <a href="/manage">Manage tracking</a>
               </div>
             </form>
           </div>
