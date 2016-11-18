@@ -75,7 +75,6 @@
               </div>
             </form>
           </div>
-      </section>
       
       <!-- signupView -->
       <section id="signup-page" class="tab-content">
@@ -113,36 +112,35 @@
         <div id="activities">
           <h1>Enter your activities</h1>
 
-          <div id="activities-form">
-            <form name="activities" action="" method="" accept-charset="UTF-8">
-              <label for="activity">Activity:</label><br>
-                <select name="activity" id="activity-select">
-                  <option value="">--Select Activity</option>
-                  <option value="running">running</option> 
-                  <option value="swimming">swimming</option>
-                  <option value="biking">biking</option>
-                </select><br>
-              <label for="target">Target:</label><br>
-                <input type="text" name="target" placeholder="target" required><br>
-            
+            <div id="activities-form">
+              <form name="activities" action="" method="" accept-charset="UTF-8">
+                <label for="activity">Activity:</label><br>
+                  <select name="activity" id="activity-select">
+                    <option value="">--Select Activity</option>
+                    <option value="running">running</option> 
+                    <option value="swimming">swimming</option>
+                    <option value="biking">biking</option>
+                  </select><br>
+                <label for="target">Target:</label><br>
+                  <input type="text" name="target" placeholder="target" required><br>
+              
               <div class="activity-submit">
-                <!-- TODO: AJAX call to POST /api/users/activities -->
+              <!-- TODO: AJAX call to POST /api/users/activities -->
                 <button id="activity-submit" type="button">Track Activity</button><br>
                 <!-- TODO: redirect to dashboardView -->
                 <!-- TODO: toggle between activity and goal graph views -->
               </div>
             </form>
-          </div>
 
-          <div id="new-activities-form">
-            <form name="new-activities" action="" method="" accept-charset="UTF-8">
-              <label for="new-activity">New Activity:</label><br>
-                <input type="text" name="new-activity" placeholder="myactivity" required><br>
-              <label for="target">Target:</label><br>
-                <input type="text" name="target" placeholder="target" required><br>
-            
+            <div id="new-activities-form">
+              <form name="new-activities" action="" method="" accept-charset="UTF-8">
+                <label for="new-activity">New Activity:</label><br>
+                  <input type="text" name="new-activity" placeholder="myactivity" required><br>
+                <label for="target">Target:</label><br>
+                  <input type="text" name="target" placeholder="target" required><br>
+              
               <div class="activity-submit">
-                <!-- TODO: AJAX call to POST /api/users/activities -->
+              <!-- TODO: AJAX call to POST /api/users/activities -->
                 <button id="new-activity-submit" type="button" value="Track activity">Track Activity</button><br>
                 <!-- TODO: redirect to dashboardView -->
                 <!-- TODO: toggle between activity and goal graph views -->
@@ -153,34 +151,34 @@
 
         <div id="goals">
           <h1>Enter your bigger-picture goal domains</h1>
-          <form id="domains-form" action="" method="" accept-charset="UTF-8">
-              <label for="domain">Domain:</label><br>
-                <select name="domain" id="domain-select">
-                  <option value="">--Select Domain</option>
-                  <option value="health">health</option> 
-                  <option value="professional">professional</option>
-                  <option value="community">community</option>
-                </select><br>
-              <label for="target">Target:</label><br>
-                <input type="text" name="target" placeholder="target" required><br>
-            
-            <div class="domain-submit">
-            <!-- TODO: AJAX call to POST /api/users/domain -->
-              <button id="domain-submit" type="button">Track Domain</button><br>
-              <!-- TODO: redirect to dashboardView -->
-              <!-- TODO: toggle between activity and goal graph views -->
-            </div>
-          </form>
-          <div id="new-domains-form">
-            <form name="new-domains" action="" method="" accept-charset="UTF-8">
-              <label for="new-domain">New Domain:</label><br>
-                <input type="text" name="new-domain" placeholder="mydomain" required><br>
-              <label for="target">Target:</label><br>
-                <input type="text" name="target" placeholder="target" required><br>
-            
-            <div class="domain-submit">
-            <!-- TODO: AJAX call to POST /api/users/domains -->
-              <button id="new-domain-submit" type="button" value="Track domain">Track Domain</button><br>
+            <form id="domains-form" action="" method="" accept-charset="UTF-8">
+                <label for="domain">Domain:</label><br>
+                  <select name="domain" id="domain-select">
+                    <option value="">--Select Domain</option>
+                    <option value="health">health</option> 
+                    <option value="professional">professional</option>
+                    <option value="community">community</option>
+                  </select><br>
+                <label for="target">Target:</label><br>
+                  <input type="text" name="target" placeholder="target" required><br>
+              
+              <div class="domain-submit">
+              <!-- TODO: AJAX call to POST /api/users/domain -->
+                <button id="domain-submit" type="button">Track Domain</button><br>
+                <!-- TODO: redirect to dashboardView -->
+                <!-- TODO: toggle between activity and goal graph views -->
+              </div>
+            </form>
+            <div id="new-domains-form">
+              <form name="new-domains" action="" method="" accept-charset="UTF-8">
+                <label for="new-domain">New Domain:</label><br>
+                  <input type="text" name="new-domain" placeholder="mydomain" required><br>
+                <label for="target">Target:</label><br>
+                  <input type="text" name="target" placeholder="target" required><br>
+              
+              <div class="domain-submit">
+              <!-- TODO: AJAX call to POST /api/users/domains -->
+                <button id="new-domain-submit" type="button" value="Track domain">Track Domain</button><br>
                 <!-- TODO: redirect to dashboardView -->
                 <!-- TODO: toggle between domain and goal graph views -->
               </div>
@@ -229,7 +227,6 @@
                 <a href='#'>Setup and manage tracking</a>
               </div>
             </form>
-          </div>
         </div>
       
         <div id="charts-container">
@@ -242,11 +239,11 @@
           <!-- Bar describes specific time budget/target specific user activity/domain -->
           <div class="bar-chart-container">
             <!-- Mark to write logic for chart -->
-            <canvas id="bar_chart_canvas" width="300" height="300"></canvas>
-          </div>
+            <canvas id="chart_canvas" width="300" height="300"></canvas>
+         </div>
         </div>
-      </section> 
-    </div>
+      </div>
+    </section>
   </main>
 
   <!--Scripts-->
@@ -261,16 +258,16 @@
   <!--View scripts-->
   <script type="text/javascript" src="/scripts/views/signupView.js"></script>
   <script type="text/javascript" src="/scripts/views/signinView.js"></script>
-  <!--<script type="text/javascript" src="/scripts/views/dashboardView.js"></script>-->
+  <script type="text/javascript" src="/scripts/views/dashboardView.js"></script>
   <script type="text/javascript" src="/scripts/views/manageView.js"></script>
  
   <!--Controller scripts-->
   <!-- DONE: need to make sure appropriate controllers put here -->
+  <script type="text/javascript" src ="/scripts/controllers/routes.js"></script>
   <script type="text/javascript" src ="/scripts/controllers/manageToken.js"></script>
   <script type="text/javascript" src ="/scripts/controllers/signupController.js"></script>
   <script type="text/javascript" src ="/scripts/controllers/signinController.js"></script>
   <script type="text/javascript" src ="/scripts/controllers/dashboardController.js"></script>
   <script type="text/javascript" src ="/scripts/controllers/manageController.js"></script>
-  <script type="text/javascript" src ="/scripts/controllers/routes.js"></script>
 </body>
 </html>

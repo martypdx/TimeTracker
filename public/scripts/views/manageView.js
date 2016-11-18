@@ -48,6 +48,55 @@
     });
   };
 
+  manageView.handleDomain = function () {
+    $('#domain-submit').on('click', function (){
+
+      console.log('obj', obj);
+      var domain = $('#domains-form select[name=domain]').val();
+      var target = $('#domains-form input[name=target]').val(); 
+
+      var obj = {};
+      obj[domain] = target;
+      var domains = {domains: obj};
+
+
+      manageController.editUser(domains);
+      // manageController.reveal();
+    });
+  };
+
+  manageView.handleNewDomain = function() {
+ 
+    $('#new-domain-submit').on('click', function () {
+
+      console.log('obj', obj);
+      var newdomain = $('#new-domains-form input[name=new-domain]').val();
+      var target = $('#new-domains-form input[name=target]').val();
+
+      var obj = {};
+      obj[newdomain] = target;
+      var domains = {domains: obj};
+
+      manageController.editUser(domains);
+    });
+  };
+
+  manageView.addTimeBlock = function() {
+    $('#timeblock-submit').on('click', function () {
+
+      var timeblock = {};
+      timeblock.startTime = $('input[name=startTime]').val();
+      timeblock.endTime = $('input[name=endTime]').val();
+      timeblock.description = $('input[name=description]').val();
+      timeblock.activity =$('#activity-tag').val();
+      timeblock.domain =$('#domain-tag').val();
+
+      console.log('timeblock.startTime', timeblock.startTime, typeof timeblock.startTime);
+
+      manageController.addTimeBlock(timeblock);
+    });
+  };
+
 
 
     // $('#domain-submit').on('click', function (){
@@ -62,6 +111,9 @@
 
   manageView.handleActivity();
   manageView.handleNewActivity();
+  manageView.handleDomain();
+  manageView.handleNewDomain();
+  manageView.addTimeBlock();
 
   module.manageView = manageView;
 
