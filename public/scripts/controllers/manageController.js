@@ -55,8 +55,9 @@
     //   error: (xhr, type, err) => alert(`Error: ${err}`)
     // });
 
+
     superagent 
-      .get('api/timeblocks/users')
+      .get('/api/timeblocks/users')
       .set('Authorization', tttoken)
       .then(res => {
         alert(`Got timeblock`);
