@@ -68,11 +68,11 @@
       });
   };
 
-  manageController.editTimeBlock = (id, obj, next) => {
+  manageController.editTimeBlock = (id, obj) => {
 
     superagent
-      .put()
-      .set('Authoriation', tttoken)
+      .put(`/api/timeblocks/${id}`)
+      .set('Authorization', tttoken)
       .send(obj)
       .then(res => {
         alert('Successfully updated timeblock');
