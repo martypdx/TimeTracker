@@ -16,11 +16,121 @@ This was written as a project for Code Fellows 401 class.
 
 ## API Reference
 
-### API route/example 1
 
-`// TODO: example code here.`
 
-TODO: Description here.
+### Auth
+
+The Time Trackers API supports signup, signin and a call to validate the user's token.  All auth routes are prefixed by `/api/auth`. 
+
+#### Sign up
+To send a signup request. 
+`POST /api/auth/signup` 
+The request body should contain a JSON object containing `username` and `password` keys. 
+Example: 
+```
+    {
+    "username": "myusername", 
+    "password": "mypassword"
+    }
+```
+
+The response object will contain the user's token.
+`{"token": "asdfghjklasdfghjklasdfghjkl"}`
+
+#### Sign in 
+To send a sign in request:
+`POST /api/auth/signin`
+Send `username` and `password` in JSON object. Example: 
+```
+    {
+    "username": "myusername", 
+    "password": "mypassword"
+    }
+```
+
+The response object will contain the user's token.
+`{"token": "asdfghjklasdfghjklasdfghjkl"}`
+
+#### Validate token
+To validate user token:
+`POST /api/auth/validate`
+
+Include an `Authorization` in the headers property that hold the token as its value. 
+
+`{"Authorization": token}`
+
+
+### User routes
+
+The Time Trackers API supports GET and PUT requests for one user.  All auth routes are prefixed by `/api/users`. 
+
+All requests must include the Authorization token in the headers:
+
+`{"Authorization": token}`
+
+
+#### The user object
+
+The user object contains a `username`, a hashed `password`, the user's `activities` and `domains`.  The `activities` and `domains` keys have values of an object with properties that are the user's stored activities with a value of the number of target hours per week. 
+
+Example: 
+
+```
+{
+    "username": username,
+    "password": hashedpassword,
+    "activities" {
+        "running": 3,
+        "yoga": 2,
+        "chores": 5
+    }, 
+    "domains" : {
+        "health": 10,
+        "professional": 50
+    }
+}
+```
+
+
+#### GET user
+
+To retrieve the user object for a user with a valid token: 
+
+`GET /api/users`
+
+All requests must include the Authorization token in the headers:
+
+`{"Authorization": token}`
+
+#### Edit user
+
+To edit the user object's `activities` or `domains` properties: 
+
+`PUT /api/users`
+
+`PUT` requests are not currently supported for the  `username` and `password` properties.  
+
+Include the properties to add or update on the user object along with their new values. Removing an activity or domain from the user object entirely is not supported.  
+
+Example: 
+```
+{
+    "activities": {
+        "running": 5
+    }
+
+    "domains" {
+        "professional": 40,
+        "art": 10
+    }
+}
+```
+
+All requests must include the Authorization token in the headers:
+
+`{"Authorization": token}`
+
+`PUT` request return the modified user object in the response. 
 
 ### API route/example 2
 
