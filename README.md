@@ -2,13 +2,8 @@
 
 ## Description
 
-TODO: Add program description.
+This API was designed with habit-builders in mind. It can help you identify where your time is being spent in the activities you regularly enagage with, and assist you in aligning that awareness with the achievement of bigger goals.
 
-## Code Example
-
-```
-// TODO: Code example goes here.
-```
 
 ## Motivation
 
@@ -71,12 +66,13 @@ All requests must include the Authorization token in the headers:
 
 #### The user object
 
-The user object contains a `username`, a hashed `password`, the user's `activities` and `domains`.  The `activities` and `domains` keys have values of an object with properties that are the user's stored activities with a value of the number of target hours per week. 
+The user object contains an `_id`, `username`, a hashed `password`, the user's `activities` and `domains`.  The `activities` and `domains` keys have values of an object with properties that are the user's stored activities with a value of the number of target hours per week. 
 
 Example: 
 
 ```
 {
+    "_id": userId,
     "username": username,
     "password": hashedpassword,
     "activities" {
@@ -131,12 +127,82 @@ All requests must include the Authorization token in the headers:
 `{"Authorization": token}`
 
 `PUT` request return the modified user object in the response. 
+### Timeblock routes
+Timeblocks may be created, retreived, edited and deleted using this API.
 
-### API route/example 2
+All requests must include the Authorization token in the headers:
 
-`// TODO: example code here.`
+`{"Authorization": token}`
 
-TODO: Description here.
+#### Time block object
+
+Time blocks hold information related to a given block of time.  The object contains an `_id`, `userId` which references a user , `startTime` (required), `endTime`, `description` (required), `activity` and `domain` fields. 
+
+Example: 
+```
+{
+    "_id": timeblockId, 
+    "userId": userId, 
+    "startTime": "2016-11-17T07:00:00.000Z",
+    "endTime": "2016-11-17T19:00:00.000Z",
+    "description": "Dishman community pool"
+    "activity": "swimming",
+    "domain": "health"
+}
+```
+#### Create a timeblock
+
+`POST /api/timeblocks`
+
+To create a timeblock send a reqeust with a body that includes the fields of the timeblock to be created, except the `userId`.
+
+Include the token in the Authorization header. 
+
+The `startTime` and `description` fields are required to create the timeblock. 
+
+{
+    "startTime": "2016-11-10T07:00:00.000Z",
+    "endTime": "2016-11-10T08:00:00.000Z",
+    "description": "Dishman community pool",
+    "activity": "swimming"
+}
+
+
+#### Get all timeblocks for a given user
+
+`GET /api/timeblocks`
+
+Include the token in the header to retrieve all timeblocks associated with the current user. 
+
+#### Get one timeblockId
+
+`GET /api/timeblocks/:id`
+
+Include the timeblock id (`_id`) in the path to access a specific timeblock.  The timeblock must be associated with the current user. 
+
+#### Edit a timeblock
+
+`PUT /api/timeblocks/:id`
+
+Include a JSON object with the fields to be changed and the value to which those fields should be changed.
+
+Example:
+
+`{"description": "swimming at Dishman Pool with Emily"}`
+
+The response will contain the newly updated object. 
+
+
+Include the timeblock id (`_id`) in the path to access a specific timeblock.  The timeblock must be associated with the current user. 
+
+#### Delete a timeblock
+
+`DELETE /api/timeblocks/:id` 
+
+Include the timeblock id (`_id`) in the path to delete a specific timeblock.  The timeblock must be associated with the current user. 
+
+The response will contain the deleted object. 
+
 
 ## Tests
 
