@@ -11,7 +11,6 @@
       var obj = {};
       obj[activity] = parseInt(target, 10);
       var activities = {activities: obj};
-      console.log('user activities: ', activities);
 
       var target = $('#activities-form input[name=target]').val();
       manageController.editUser(activities);
