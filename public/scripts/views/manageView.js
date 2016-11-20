@@ -9,10 +9,11 @@
       var target = $('#activities-form input[name=target]').val(); 
 
       var obj = {};
-      obj[activity] = target;
+      obj[activity] = parseInt(target, 10);
       var activities = {activities: obj};
+      console.log('user activities: ', activities);
 
-      var target = $('#activities-form input[name=target]').val('');
+      var target = $('#activities-form input[name=target]').val();
       manageController.editUser(activities);
     });
   };
@@ -24,13 +25,13 @@
       var target = $('#new-activities-form input[name=target]').val();
 
       var obj = {};
-      obj[newactivity] = target;
+      obj[newactivity] = parseInt(target, 10);
       var activities = {activities: obj};
 
       manageController.editUser(activities);
 
-      $('#new-activities-form input[name=new-activity]').val('');
-      $('#new-activities-form input[name=target]').val('');
+      $('#new-activities-form input[name=new-activity]').val();
+      $('#new-activities-form input[name=target]').val();
 
     });
   };
@@ -42,13 +43,13 @@
       var target = $('#domains-form input[name=target]').val(); 
 
       var obj = {};
-      obj[domain] = target;
+      obj[domain] = parseInt(target, 10);
       var domains = {domains: obj};
 
 
       manageController.editUser(domains);
       
-      $('#domains-form input[name=target]').val(''); 
+      $('#domains-form input[name=target]').val(); 
 
     });
   };
@@ -61,13 +62,13 @@
       var target = $('#new-domains-form input[name=target]').val();
 
       var obj = {};
-      obj[newdomain] = target;
+      obj[newdomain] = parseInt(target, 10);
       var domains = {domains: obj};
 
       manageController.editUser(domains);
 
-      $('#new-domains-form input[name=new-domain]').val('');
-      $('#new-domains-form input[name=target]').val('');
+      $('#new-domains-form input[name=new-domain]').val();
+      $('#new-domains-form input[name=target]').val();
     });
   };
 
@@ -85,13 +86,11 @@
 
       manageController.addTimeBlock(timeblock);
 
-      $('input[name=startTime]').val('');
-      $('input[name=endTime]').val('');
-      $('input[name=description]').val('');
+      $('input[name=startTime]').val();
+      $('input[name=endTime]').val();
+      $('input[name=description]').val();
     });
   };
-
-
 
   manageView.handleActivity();
   manageView.handleNewActivity();
@@ -100,6 +99,5 @@
   manageView.addTimeBlock();
 
   module.manageView = manageView;
-
 
 })(window);

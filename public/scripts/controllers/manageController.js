@@ -23,7 +23,7 @@
       });
   };
 
-  manageController.editUser = function(obj, next) { 
+  manageController.editUser = function(obj) { 
 
     console.log('edituser', tttoken);
     //obj passed in should be an object with activities or domains in this format {activites: {act1: 5, act2: 10}, domains: {dom1: 5, dom2: 10}}
@@ -32,7 +32,7 @@
       .set('Authorization', tttoken)
       .send(obj)
       .then(res => {
-        alert('Successfully updated user!')
+        alert('Successfully updated user!');
         console.log('Updated User:', res.body);
       })
       .catch(err => {
@@ -54,7 +54,7 @@
       });
   };
 
-  manageController.getOneTimeBlock = (id, next) => {
+  manageController.getOneTimeBlock = (id) => {
     
     superagent
       .get(`/api/timeblocks/${id}`)
@@ -84,7 +84,7 @@
 
   };
 
-  manageController.deleteTimeBlock = (id, next) => {
+  manageController.deleteTimeBlock = (id) => {
 
     superagent
       .del(`/api/timeblocks/${id}`)
@@ -111,7 +111,6 @@
       .catch(err => {
         alert(JSON.parse(err.response.text).error);
       });
-
 
   };
 
