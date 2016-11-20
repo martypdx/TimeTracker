@@ -9,7 +9,7 @@
       var target = $('#activities-form input[name=target]').val(); 
 
       var obj = {};
-      obj[activity] = target;
+      obj[activity] = parseInt(target, 10);
       var activities = {activities: obj};
 
       var target = $('#activities-form input[name=target]').val('');
@@ -24,7 +24,7 @@
       var target = $('#new-activities-form input[name=target]').val();
 
       var obj = {};
-      obj[newactivity] = target;
+      obj[newactivity] = parseInt(target, 10);
       var activities = {activities: obj};
 
       manageController.editUser(activities);
@@ -42,7 +42,7 @@
       var target = $('#domains-form input[name=target]').val(); 
 
       var obj = {};
-      obj[domain] = target;
+      obj[domain] = parseInt(target, 10);
       var domains = {domains: obj};
 
 
@@ -61,7 +61,7 @@
       var target = $('#new-domains-form input[name=target]').val();
 
       var obj = {};
-      obj[newdomain] = target;
+      obj[newdomain] = parseInt(target, 10);
       var domains = {domains: obj};
 
       manageController.editUser(domains);
@@ -91,8 +91,6 @@
     });
   };
 
-
-
   manageView.handleActivity();
   manageView.handleNewActivity();
   manageView.handleDomain();
@@ -100,6 +98,5 @@
   manageView.addTimeBlock();
 
   module.manageView = manageView;
-
 
 })(window);

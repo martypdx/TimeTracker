@@ -6,12 +6,10 @@
   dashboardController.targetHrsData = [];
 
   dashboardController.fetchWeeklySummaryData = function() {
-
-    var tttoken = manageToken.getToken();
   
     superagent
       .get('/api/wkly_totals?by=activity')
-      .set('Authorization', tttoken)
+      .set('Authorization', manageToken.getToken())
       .then((results) => {
         dashboardController.categoryData = results.body.category;
         dashboardController.actualHrsData = results.body.hrs;
