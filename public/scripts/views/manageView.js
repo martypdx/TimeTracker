@@ -12,7 +12,7 @@
       obj[activity] = parseInt(target, 10);
       var activities = {activities: obj};
 
-      var target = $('#activities-form input[name=target]').val();
+      var target = $('#activities-form input[name=target]').val('');
       manageController.editUser(activities);
     });
   };
@@ -29,8 +29,8 @@
 
       manageController.editUser(activities);
 
-      $('#new-activities-form input[name=new-activity]').val();
-      $('#new-activities-form input[name=target]').val();
+      $('#new-activities-form input[name=new-activity]').val('');
+      $('#new-activities-form input[name=target]').val('');
 
     });
   };
@@ -48,7 +48,7 @@
 
       manageController.editUser(domains);
       
-      $('#domains-form input[name=target]').val(); 
+      $('#domains-form input[name=target]').val(''); 
 
     });
   };
@@ -66,8 +66,8 @@
 
       manageController.editUser(domains);
 
-      $('#new-domains-form input[name=new-domain]').val();
-      $('#new-domains-form input[name=target]').val();
+      $('#new-domains-form input[name=new-domain]').val('');
+      $('#new-domains-form input[name=target]').val('');
     });
   };
 
@@ -85,9 +85,9 @@
 
       manageController.addTimeBlock(timeblock);
 
-      $('input[name=startTime]').val();
-      $('input[name=endTime]').val();
-      $('input[name=description]').val();
+      $('input[name=startTime]').val('');
+      $('input[name=endTime]').val('');
+      $('input[name=description]').val('');
     });
   };
 
