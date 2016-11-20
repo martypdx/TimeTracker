@@ -8,12 +8,10 @@
     
   };
 
-  var tttoken = manageToken.getToken();
-
   manageController.getUser = function() {
     superagent
       .get('/api/users')
-      .set('Authorization', tttoken)
+      .set('Authorization', manageToken.getToken())
       .then(res => {
         alert('Got user!');
         console.log('User:', res.body);
@@ -24,12 +22,10 @@
   };
 
   manageController.editUser = function(obj) { 
-
-    console.log('edituser', tttoken);
     //obj passed in should be an object with activities or domains in this format {activites: {act1: 5, act2: 10}, domains: {dom1: 5, dom2: 10}}
     superagent
       .put('/api/users')
-      .set('Authorization', tttoken)
+      .set('Authorization', manageToken.getToken())
       .send(obj)
       .then(res => {
         alert('Successfully updated user!');
@@ -41,10 +37,9 @@
   };
 
   manageController.getAllTimeBlocks = () => {
-
     superagent 
       .get('/api/timeblocks/users')
-      .set('Authorization', tttoken)
+      .set('Authorization', manageToken.getToken())
       .then(res => {
         alert('Got all timeblocks');
         console.log('Timeblocks', res.body);
@@ -55,10 +50,9 @@
   };
 
   manageController.getOneTimeBlock = (id) => {
-    
     superagent
       .get(`/api/timeblocks/${id}`)
-      .set('Authorization', tttoken)
+      .set('Authorization', manageToken.getToken())
       .then(res => {
         alert('Got timeblock');
         console.log('Timeblock', res.body);
@@ -69,10 +63,9 @@
   };
 
   manageController.editTimeBlock = (id, obj) => {
-
     superagent
       .put(`/api/timeblocks/${id}`)
-      .set('Authorization', tttoken)
+      .set('Authorization', manageToken.getToken())
       .send(obj)
       .then(res => {
         alert('Successfully updated timeblock');
@@ -85,10 +78,9 @@
   };
 
   manageController.deleteTimeBlock = (id) => {
-
     superagent
       .del(`/api/timeblocks/${id}`)
-      .set('Authorization', tttoken)
+      .set('Authorization', manageToken.getToken())
       .then(res => {
         alert('Successfully deleted timeblock');
         console.log('Deleted timeblock', res.body);
@@ -98,10 +90,9 @@
   };
 
   manageController.addTimeBlock = (obj) => {
-
     superagent
       .post('/api/timeblocks')
-      .set('Authorization', tttoken)
+      .set('Authorization', manageToken.getToken())
       .send(obj)
       .then(res => {
         alert('Added new timeblock!');
