@@ -4,7 +4,6 @@
   manageView.handleActivity = function () {
     $('#activity-submit').on('click', function (){
 
-      console.log('obj', obj);
       var activity = $('#activities-form select[name=activity]').val();
       var target = $('#activities-form input[name=target]').val(); 
 
