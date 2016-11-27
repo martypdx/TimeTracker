@@ -1,5 +1,7 @@
 # Time Tracker
 
+Grading PR, initial commit :)
+
 ## Description
 
 This API was designed with habit-builders in mind. It can help you identify where your time is being spent in the activities you regularly enagage with, and assist you in aligning that awareness with the achievement of bigger goals.
