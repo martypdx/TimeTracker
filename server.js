@@ -7,5 +7,6 @@ require('./lib/setup-mongoose');
 const server = http.createServer(app);
 
 server.listen(port, () => {
-  console.log('Server running at ', server.address().address, ':', server.address().port);
+  const { address, port } = server.address();
+  console.log(`Server running at ${address}:${port}`);
 });

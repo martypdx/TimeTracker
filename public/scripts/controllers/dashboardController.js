@@ -25,7 +25,8 @@
     
   dashboardController.drawGraph = function(ctx) {
 
-    let wkly_summary_chart = new Chart(ctx, { // eslint-disable-line no-unused-vars, no-undef
+    // Add as global to .eslintrc
+    new Chart(ctx, { // eslint-disable-line no-undef
       type: 'bar',
       data: {
         labels: dashboardController.categoryData,

@@ -2,13 +2,15 @@
   "name": "time-tracker",
   "version": "0.1.0",
   "description": "Time tracking software for individuals",
-  "main": "TimeTracker.js",
   "scripts": {
     "lint": "eslint **/*.js",
     "pretest": "npm run lint",
     "test": "mocha",
+    
+    "//": "I'm curious as to reason behind next two scripts:",
     "build": "npm install",
     "dev": "npm install --save-dev",
+
     "watch": "npm run test -- -w",
     "start": "node server.js"
   },

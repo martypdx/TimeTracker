@@ -17,7 +17,6 @@ describe('TimeBlock', () => {
   let token = '';
 
   // Adding a dummy user to generate token
-  // TODO: uncomment lines that set auth token
   before(done => {
     request
       .post('/api/auth/signup')
@@ -30,7 +29,6 @@ describe('TimeBlock', () => {
   });
 
   let testBlock = {
-    //might need userId once we add authorization
     startTime: new Date(2016, 11, 15, 12),
     endTime: new Date(2016, 11, 15, 13),
     description: 'lunch with friends',
@@ -130,6 +128,7 @@ describe('TimeBlock', () => {
           .get(`/api/timeblocks/${testBlock._id}`)
           .set('Authorization', token)
           .then(res => {
+            // should this be a failure?
             console.log('res.body', res.body);
           })
           .catch(err => {

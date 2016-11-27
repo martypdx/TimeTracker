@@ -8,28 +8,28 @@ describe('User model', () => {
       password: 'testing password'
     });
 
-    user.validate(err => {
-      if (!err) done();
-      else done(err);
-    });
+    user.validate(done);
   });
+
+  // DRY: extract functions for common behavior,
+  // function name helps add descriptive info
+  // (and you could also then extract this to own module
+  // and use in timeblock.test.js as well...)
+  function testModelIsInvalid(model, cb) {
+    model.validate(err => {
+      expect(err).to.be.ok;
+      cb();
+    });
+  } 
 
   it('username is required', done => {
     const user = new User({password: 'testItem'});
-
-    user.validate(err => {
-      expect(err).to.be.ok;
-      done();
-    });
+    testModelIsInvalid(user, done);
   });
 
   it('password is required', done => {
     const user = new User({username: 'testItem'});
-
-    user.validate(err => {
-      expect(err).to.be.ok;
-      done();
-    });
+    testModelIsInvalid(user, done);
   });
 
 

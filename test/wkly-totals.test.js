@@ -1,3 +1,4 @@
+// these are api tests, but doesn't match your file naming convention. 
 const chaiHttp = require('chai-http');
 const chai = require('chai');
 const expect = chai.expect;
@@ -39,6 +40,7 @@ describe('Summary data route', () => {
     domain: 'social'
   };
 
+  // this is really setup, so 1) use `before` instead of `it`,
   it('post', done => {
     request
       .post('/api/timeblocks')
@@ -46,6 +48,8 @@ describe('Summary data route', () => {
       .send(testBlock)
       .then(res => {
         const block = res.body;
+        // and 2) you don't need to retest this here 
+        // because already tested in timeblock-api-test.js
         expect(block._id).to.be.ok;
         expect(block.userId).to.be.ok;
         testBlock = block;
@@ -54,7 +58,11 @@ describe('Summary data route', () => {
       .catch(done);
   });
   
-  it ('/api/wkly_totals?by=activity returns three data sets', (done) => {
+  // these three tests could be combined into one, but
+  // bigger issue is that they don't test any math and
+  // correctness of "weekly totals", just 
+  // existence, data type (array) and length of array.
+  it ('/api/wkly_totals?by=activity returns three data sets', done => {
     request
       .get('/api/wkly_totals?by=activity')
       .set('Authorization', token)
@@ -67,7 +75,7 @@ describe('Summary data route', () => {
       .catch(done);
   });
 
-  it ('/api/wkly_totals?by=activity returned datasets should be arrays', (done) => {
+  it ('/api/wkly_totals?by=activity returned datasets should be arrays', done => {
     request
       .get('/api/wkly_totals?by_activity')
       .set('Authorization', token)
@@ -80,7 +88,7 @@ describe('Summary data route', () => {
       .catch(done);
   });
 
-  it ('/api/wkly_totals?by=activity returned arrays are all the same length', (done) => {
+  it ('/api/wkly_totals?by=activity returned arrays are all the same length', done => {
     request
       .get('/api/wkly_totals?by_activity')
       .set('Authorization', token)

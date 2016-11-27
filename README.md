@@ -1,7 +1,5 @@
 # Time Tracker
 
-Grading PR, initial commit :)
-
 ## Description
 
 This API was designed with habit-builders in mind. It can help you identify where your time is being spent in the activities you regularly enagage with, and assist you in aligning that awareness with the achievement of bigger goals.
@@ -13,7 +11,25 @@ This was written as a project for Code Fellows 401 class.
 
 ## API Reference
 
+Nice work on API Reference :)
 
+Couple of suggestions:
+* On the auth token to:
+    * Don't repeat over and over, just include once after signin/signup and state that
+    it applies to rest of data api's
+    * Don't use a JSON-esque format like `{"Authorization": token}` for http headers. 
+    If you look at docs like [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept),
+    you'll see that it's just `Key: <value>`. So looks like:
+    ```
+    Authorization: <token>
+    ```
+* Common to use angle brackets on `<placeholders>`, i.e.:
+```
+{
+    "username": <username>, 
+    "password": <password>
+}
+```
 
 ### Auth
 
@@ -25,10 +41,10 @@ To send a signup request.
 The request body should contain a JSON object containing `username` and `password` keys. 
 Example: 
 ```
-    {
+{
     "username": "myusername", 
     "password": "mypassword"
-    }
+}
 ```
 
 The response object will contain the user's token.
@@ -39,10 +55,10 @@ To send a sign in request:
 `POST /api/auth/signin`
 Send `username` and `password` in JSON object. Example: 
 ```
-    {
+{
     "username": "myusername", 
     "password": "mypassword"
-    }
+}
 ```
 
 The response object will contain the user's token.
@@ -162,12 +178,14 @@ Include the token in the Authorization header.
 
 The `startTime` and `description` fields are required to create the timeblock. 
 
+```
 {
     "startTime": "2016-11-10T07:00:00.000Z",
     "endTime": "2016-11-10T08:00:00.000Z",
     "description": "Dishman community pool",
     "activity": "swimming"
 }
+```
 
 
 #### Get all timeblocks for a given user
